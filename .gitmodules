@@ -1,0 +1,3 @@
+[submodule "themes/mango"]
+	path = themes/mango
+	url = https://github.com/mango-tree/hexo-theme-mango.git
