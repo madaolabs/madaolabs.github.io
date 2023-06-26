@@ -54,6 +54,100 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-rust/FFI" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/06/26/rust/FFI/">FFI</a>
+    </h1>
+  
+
+        <a href="/2023/06/26/rust/FFI/" class="article-date">
+  <time datetime="2023-06-26T15:03:25.000Z" itemprop="datePublished">2023-06-26</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p><a target="_blank" rel="noopener" href="https://rustcc.cn/article?id=3b8241d0-c4ca-4f49-8e07-0a5142b00f59">https://rustcc.cn/article?id=3b8241d0-c4ca-4f49-8e07-0a5142b00f59</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/FFI/" data-id="cljcjnr4o0001impu8a6sck5b" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-rust/lib" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/06/26/rust/lib/">lib</a>
+    </h1>
+  
+
+        <a href="/2023/06/26/rust/lib/" class="article-date">
+  <time datetime="2023-06-26T14:40:19.000Z" itemprop="datePublished">2023-06-26</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc --help|grep crate-type</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--crate-type [bin|lib|rlib|dylib|cdylib|staticlib|proc-macro]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>bin<br>bin 代表二进制可执行文件</p>
+</li>
+<li><p>lib<br>不是具体的库代表，默认使用的 rlib</p>
+</li>
+<li><p>rlib<br>rlib 是 Rust Library 特定静态中间库格式。如果只是纯 Rust 代码项目之间的依赖和调用，那么，用 rlib 就能完全满足使用需求。</p>
+</li>
+<li><p>staticlib<br>编译为静态库 会生成 .a 文件（在 Linux 和 MacOS 上），或 .lib 文件（在 Windows 上）。</p>
+</li>
+<li><p>proc-macro<br>这种 crate 里面只能导出过程宏，被导出的过程宏可以被其它 crate 引用。</p>
+</li>
+<li><p>dylib<br>会在编译的时候，生成动态库（Linux 上为 .so, MacOS 上为 .dylib, Windows 上为 .dll）。</p>
+<p>动态库是平台相关的库。动态库在被依赖并链接时，不会被链接到目标文件中。这种动态库只能被 Rust 写的程序(或遵循 Rust 内部不稳定的规范的程序)调用。这个动态库可能依赖于其它动态库（比如，Linux 下用 C 语言写的 PostgreSQL 的 libpq.so，或者另一个编译成 “dylib” 的 Rust 动态库）。</p>
+</li>
+<li><p>cdylib<br>与 dylib 类似，也会生成 .so, .dylib 或 .dll 文件。但是这种动态库可以被其它语言调用（因为几乎所有语言都有遵循 C 规范的 FFI 实现），也就是跨语言 FFI 使用。这个动态库可能依赖于其它动态库（比如，Linux 下用 C 语言写的 PostgreSQL 的 libpq.so）。</p>
+</li>
+</ul>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="cljcjnr4t0003impu3bfj99h5" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-rust/LLVM" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -82,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/25/rust/LLVM/" data-id="cljb5lslo0001kvndfg9ecpi3" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/25/rust/LLVM/" data-id="cljcjnr4q0002impuh9bl57ci" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -131,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/25/algorithm/" data-id="cljb5lslj0000kvnd715wc9qu" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/25/algorithm/" data-id="cljcjnr4j0000impugp84d0my" class="article-share-link">Share</a>-->
       
       
     </footer>
