@@ -3,16 +3,20 @@ title: lib
 date: 2023-06-26 14:40:19
 ---
 
+先看看 rust 支持哪些 crate-type
+
 ```shell
     rustc --help|grep crate-type
 ```
+
+输出为：
 
 ```shell
     --crate-type [bin|lib|rlib|dylib|cdylib|staticlib|proc-macro]
 ```
 
 - bin
-  bin 代表二进制可执行文件
+  bin 代表二进制可执行文件，不需要特别声明，Cargo.toml 不声明 [lib], 打包出来就是可执行二进制文件
 
 - lib
   不是具体的库代表，默认使用的 rlib
