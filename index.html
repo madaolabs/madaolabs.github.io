@@ -54,6 +54,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-rust/macro" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/06/29/rust/macro/">macro</a>
+    </h1>
+  
+
+        <a href="/2023/06/29/rust/macro/" class="article-date">
+  <time datetime="2023-06-29T13:55:03.000Z" itemprop="datePublished">2023-06-29</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p><a target="_blank" rel="noopener" href="https://course.rs/advance/macro.html">https://course.rs/advance/macro.html</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://blog.madaotech.top/2023/06/29/rust/macro/" data-id="cljgypi3a0004gyokcjc60pq9" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-rust/FFI" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -81,7 +118,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/FFI/" data-id="cljcjnr4o0001impu8a6sck5b" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/FFI/" data-id="cljgypi340001gyok9ufnh1xd" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -113,12 +150,14 @@
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc --help|grep crate-type</span><br></pre></td></tr></table></figure>
+        <!--<p>先看看 rust 支持哪些 crate-type</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc --help|grep crate-type</span><br></pre></td></tr></table></figure>
 
+<p>输出为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--crate-type [bin|lib|rlib|dylib|cdylib|staticlib|proc-macro]</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>bin<br>bin 代表二进制可执行文件</p>
+<li><p>bin<br>bin 代表二进制可执行文件，不需要特别声明，Cargo.toml 不声明 [lib], 打包出来就是可执行二进制文件</p>
 </li>
 <li><p>lib<br>不是具体的库代表，默认使用的 rlib</p>
 </li>
@@ -138,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="cljcjnr4t0003impu3bfj99h5" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="cljgypi370003gyok4quxagk4" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -170,13 +209,14 @@
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>LLVM 是编译器架构。<br>几乎上所有的编译器的架构都是 3 段式：frontend, optimizer, backend.<br>LLVM 同样也是。<br>Frontend 进行词法分析、语法分析、语义分析、生成中间代码。<br>Optimizer 是对代码优化。<br>Backend 是将代码编译为机器码。<br><img src="/old_artification.png"><br>LLVM 把这个架构做的抽象，让不同的前端后端使用统一的中间代码 LLVM Intermediate Representation (LLVM IR)，当增加一种新的语言时，只需要关注 frontend；增加新平台时只关注 backend。<br><img src="/2023/06/25/rust/LLVM/new_artification.png"></p>
+        <!--<p>LLVM 是编译器架构。<br>几乎上所有的编译器的架构都是 3 段式：frontend, optimizer, backend.<br>LLVM 同样也是。<br>Frontend 进行词法分析、语法分析、语义分析、生成中间代码。<br>Optimizer 是对代码优化。<br>Backend 是将代码编译为机器码。<br><img src="/old_artification.png"></p>
+<p>LLVM 把这个架构做的抽象，让不同的前端后端使用统一的中间代码 LLVM Intermediate Representation (LLVM IR)，当增加一种新的语言时，只需要关注 frontend；增加新平台时只关注 backend。<br><img src="/2023/06/25/rust/LLVM/new_artification.png"></p>
 <p>Rustc 采用的就是 LLVM 的架构。</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/25/rust/LLVM/" data-id="cljcjnr4q0002impuh9bl57ci" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/25/rust/LLVM/" data-id="cljgypi360002gyokfgwhb37p" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -225,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/25/algorithm/" data-id="cljcjnr4j0000impugp84d0my" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/25/algorithm/" data-id="cljgypi2z0000gyok6c0tf5ds" class="article-share-link">Share</a>-->
       
       
     </footer>

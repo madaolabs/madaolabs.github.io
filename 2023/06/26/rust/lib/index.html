@@ -7,15 +7,15 @@
   
   <title>lib | MadaoTech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1rustc --help|grep crate-type  1--crate-type [bin|lib|rlib|dylib|cdylib|staticlib|proc-macro]   binbin 代表二进制可执行文件  lib不是具体的库代表，默认使用的 rlib  rlibrlib 是 Rust Library 特定静态中间库格式。如果只是纯 Rust 代码项目之间的依赖和调用，那么，">
+  <meta name="description" content="先看看 rust 支持哪些 crate-type 1rustc --help|grep crate-type  输出为： 1--crate-type [bin|lib|rlib|dylib|cdylib|staticlib|proc-macro]   binbin 代表二进制可执行文件，不需要特别声明，Cargo.toml 不声明 [lib], 打包出来就是可执行二进制文件  lib不是具体的库代">
 <meta property="og:type" content="article">
 <meta property="og:title" content="lib">
 <meta property="og:url" content="https://blog.madaotech.top/2023/06/26/rust/lib/index.html">
 <meta property="og:site_name" content="MadaoTech">
-<meta property="og:description" content="1rustc --help|grep crate-type  1--crate-type [bin|lib|rlib|dylib|cdylib|staticlib|proc-macro]   binbin 代表二进制可执行文件  lib不是具体的库代表，默认使用的 rlib  rlibrlib 是 Rust Library 特定静态中间库格式。如果只是纯 Rust 代码项目之间的依赖和调用，那么，">
+<meta property="og:description" content="先看看 rust 支持哪些 crate-type 1rustc --help|grep crate-type  输出为： 1--crate-type [bin|lib|rlib|dylib|cdylib|staticlib|proc-macro]   binbin 代表二进制可执行文件，不需要特别声明，Cargo.toml 不声明 [lib], 打包出来就是可执行二进制文件  lib不是具体的库代">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-06-26T14:40:19.000Z">
-<meta property="article:modified_time" content="2023-06-26T07:35:21.666Z">
+<meta property="article:modified_time" content="2023-06-29T09:47:36.262Z">
 <meta property="article:author" content="Robin">
 <meta name="twitter:card" content="summary">
   
@@ -75,12 +75,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc --help|grep crate-type</span><br></pre></td></tr></table></figure>
+        <p>先看看 rust 支持哪些 crate-type</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc --help|grep crate-type</span><br></pre></td></tr></table></figure>
 
+<p>输出为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--crate-type [bin|lib|rlib|dylib|cdylib|staticlib|proc-macro]</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>bin<br>bin 代表二进制可执行文件</p>
+<li><p>bin<br>bin 代表二进制可执行文件，不需要特别声明，Cargo.toml 不声明 [lib], 打包出来就是可执行二进制文件</p>
 </li>
 <li><p>lib<br>不是具体的库代表，默认使用的 rlib</p>
 </li>
@@ -100,7 +102,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="cljcjnr4t0003impu3bfj99h5" class="article-share-link">Share</a>
+      <a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="cljgypi370003gyok4quxagk4" class="article-share-link">Share</a>
       
       
     </footer>
