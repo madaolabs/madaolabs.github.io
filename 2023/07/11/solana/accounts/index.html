@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>account struct | MadaoTech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Account struct123456789101112131415161718pub struct AccountInfo&lt;&amp;#x27;a&gt; &amp;#123;    &#x2F;&#x2F;&#x2F; Public key of the account    pub key: &amp;&amp;#x27;a Pubkey,    &#x2F;&#x2F;&#x2F; Was the transaction signed by this accoun">
+<meta property="og:type" content="article">
+<meta property="og:title" content="account struct">
+<meta property="og:url" content="https://blog.madaotech.top/2023/07/11/solana/accounts/index.html">
+<meta property="og:site_name" content="MadaoTech">
+<meta property="og:description" content="Account struct123456789101112131415161718pub struct AccountInfo&lt;&amp;#x27;a&gt; &amp;#123;    &#x2F;&#x2F;&#x2F; Public key of the account    pub key: &amp;&amp;#x27;a Pubkey,    &#x2F;&#x2F;&#x2F; Was the transaction signed by this accoun">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-11T17:17:58.000Z">
+<meta property="article:modified_time" content="2023-07-11T09:34:52.224Z">
+<meta property="article:author" content="Robin">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="MadaoTech" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">MadaoTech</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/about/">about</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-solana/accounts" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      account struct
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Account-struct"><a href="#Account-struct" class="headerlink" title="Account struct"></a>Account struct</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">struct</span> <span class="title class_">AccountInfo</span>&lt;<span class="symbol">&#x27;a</span>&gt; &#123;</span><br><span class="line">    <span class="comment">/// Public key of the account</span></span><br><span class="line">    <span class="keyword">pub</span> key: &amp;<span class="symbol">&#x27;a</span> Pubkey,</span><br><span class="line">    <span class="comment">/// Was the transaction signed by this account&#x27;s public key?</span></span><br><span class="line">    <span class="keyword">pub</span> is_signer: <span class="type">bool</span>,</span><br><span class="line">    <span class="comment">/// Is the account writable?</span></span><br><span class="line">    <span class="keyword">pub</span> is_writable: <span class="type">bool</span>,</span><br><span class="line">    <span class="comment">/// The lamports in the account.  Modifiable by programs.</span></span><br><span class="line">    <span class="keyword">pub</span> lamports: Rc&lt;RefCell&lt;&amp;<span class="symbol">&#x27;a</span> <span class="keyword">mut</span> <span class="type">u128</span>&gt;&gt;,</span><br><span class="line">    <span class="comment">/// The data held in this account.  Modifiable by programs.</span></span><br><span class="line">    <span class="keyword">pub</span> data: Rc&lt;RefCell&lt;&amp;<span class="symbol">&#x27;a</span> <span class="keyword">mut</span> [<span class="type">u8</span>]&gt;&gt;,</span><br><span class="line">    <span class="comment">/// Program that owns this account</span></span><br><span class="line">    <span class="keyword">pub</span> owner: &amp;<span class="symbol">&#x27;a</span> Pubkey,</span><br><span class="line">    <span class="comment">/// This account&#x27;s data contains a loaded program (and is now read-only)</span></span><br><span class="line">    <span class="keyword">pub</span> executable: <span class="type">bool</span>,</span><br><span class="line">    <span class="comment">/// The epoch at which this account will next owe rent</span></span><br><span class="line">    <span class="keyword">pub</span> rent_epoch: Epoch,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Account-data-field-for-mint-account-struct"><a href="#Account-data-field-for-mint-account-struct" class="headerlink" title="Account data field for mint account struct"></a>Account data field for mint account struct</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">struct</span> <span class="title class_">Mint</span> &#123;</span><br><span class="line">    <span class="comment">/// Optional authority used to mint new tokens. The mint authority may only be provided during</span></span><br><span class="line">    <span class="comment">/// mint creation. If no mint authority is present then the mint has a fixed supply and no</span></span><br><span class="line">    <span class="comment">/// further tokens may be minted.</span></span><br><span class="line">    <span class="keyword">pub</span> mint_authority: COption&lt;Pubkey&gt;,</span><br><span class="line">    <span class="comment">/// Total supply of tokens.</span></span><br><span class="line">    <span class="keyword">pub</span> supply: <span class="type">u128</span>,</span><br><span class="line">    <span class="comment">/// Number of base 10 digits to the right of the decimal place.</span></span><br><span class="line">    <span class="keyword">pub</span> decimals: <span class="type">u8</span>,</span><br><span class="line">    <span class="comment">/// Is `true` if this structure has been initialized</span></span><br><span class="line">    <span class="keyword">pub</span> is_initialized: <span class="type">bool</span>,</span><br><span class="line">    <span class="comment">/// Optional authority to freeze token accounts.</span></span><br><span class="line">    <span class="keyword">pub</span> freeze_authority: COption&lt;Pubkey&gt;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Account-data-field-for-token-account-struct"><a href="#Account-data-field-for-token-account-struct" class="headerlink" title="Account data field for token account struct"></a>Account data field for token account struct</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">struct</span> <span class="title class_">Account</span> &#123;</span><br><span class="line">    <span class="comment">/// The mint associated with this account</span></span><br><span class="line">    <span class="keyword">pub</span> mint: Pubkey,</span><br><span class="line">    <span class="comment">/// The owner of this account.</span></span><br><span class="line">    <span class="keyword">pub</span> owner: Pubkey,</span><br><span class="line">    <span class="comment">/// The amount of tokens this account holds.</span></span><br><span class="line">    <span class="keyword">pub</span> amount: <span class="type">u128</span>,</span><br><span class="line">    <span class="comment">/// If `delegate` is `Some` then `delegated_amount` represents</span></span><br><span class="line">    <span class="comment">/// the amount authorized by the delegate</span></span><br><span class="line">    <span class="keyword">pub</span> delegate: COption&lt;Pubkey&gt;,</span><br><span class="line">    <span class="comment">/// The account&#x27;s state</span></span><br><span class="line">    <span class="keyword">pub</span> state: AccountState,</span><br><span class="line">    <span class="comment">/// If is_some, this is a native token, and the value logs the rent-exempt reserve. An Account</span></span><br><span class="line">    <span class="comment">/// is required to be rent-exempt, so the value is used by the Processor to ensure that wrapped</span></span><br><span class="line">    <span class="comment">/// PUT accounts do not drop below this threshold.</span></span><br><span class="line">    <span class="keyword">pub</span> is_native: COption&lt;<span class="type">u128</span>&gt;,</span><br><span class="line">    <span class="comment">/// The amount delegated</span></span><br><span class="line">    <span class="keyword">pub</span> delegated_amount: <span class="type">u128</span>,</span><br><span class="line">    <span class="comment">/// Optional authority to close the account.</span></span><br><span class="line">    <span class="keyword">pub</span> close_authority: COption&lt;Pubkey&gt;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.madaotech.top/2023/07/11/solana/accounts/" data-id="cljy3jbhe0006mfovgvun0l7p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/07/11/frontend/interview/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">interview</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Robin<br />
+      <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a> -->
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/" class="mobile-nav-link">about</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
