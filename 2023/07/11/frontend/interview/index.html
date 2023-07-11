@@ -5,13 +5,17 @@
   
 
   
-  <title>MadaoTech</title>
+  <title>面试题 | MadaoTech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MadaoTech">
-<meta property="og:url" content="https://blog.madaotech.top/index.html">
+  <meta name="description" content="知识点考察1. redux-thunk 和 redux-saga的区别redux-thunk 处理 side effect 的方式是：dispatch一个对象时不做处理；dispatch一个函数，在函数中处理异步动作，然后再dispatch一个对象 redux-saga 处理 side effect的方式是：自行建立了一套事件监听机制，接管所有的action。effects 方法有take, pu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题">
+<meta property="og:url" content="https://blog.madaotech.top/2023/07/11/frontend/interview/index.html">
 <meta property="og:site_name" content="MadaoTech">
+<meta property="og:description" content="知识点考察1. redux-thunk 和 redux-saga的区别redux-thunk 处理 side effect 的方式是：dispatch一个对象时不做处理；dispatch一个函数，在函数中处理异步动作，然后再dispatch一个对象 redux-saga 处理 side effect的方式是：自行建立了一套事件监听机制，接管所有的action。effects 方法有take, pu">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-11T08:23:30.000Z">
+<meta property="article:modified_time" content="2023-07-11T00:27:44.793Z">
 <meta property="article:author" content="Robin">
 <meta name="twitter:card" content="summary">
   
@@ -52,9 +56,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-frontend/interview" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-frontend/interview" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
   </div>
@@ -64,19 +66,16 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/07/11/frontend/interview/">面试题</a>
+    <h1 class="article-title" itemprop="name">
+      面试题
     </h1>
   
 
-        <a href="/2023/07/11/frontend/interview/" class="article-date">
-  <time datetime="2023-07-11T08:23:30.000Z" itemprop="datePublished">2023-07-11</time>
-</a>
       </header>
     
-    <div class="article-entry-abstract" itemprop="articleBody">
+    <div class="article-entry" itemprop="articleBody">
       
-        <!--<h1 id="知识点考察"><a href="#知识点考察" class="headerlink" title="知识点考察"></a>知识点考察</h1><h3 id="1-redux-thunk-和-redux-saga的区别"><a href="#1-redux-thunk-和-redux-saga的区别" class="headerlink" title="1. redux-thunk 和 redux-saga的区别"></a>1. redux-thunk 和 redux-saga的区别</h3><p>redux-thunk 处理 side effect 的方式是：dispatch一个对象时不做处理；dispatch一个函数，在函数中处理异步动作，然后再dispatch一个对象</p>
+        <h1 id="知识点考察"><a href="#知识点考察" class="headerlink" title="知识点考察"></a>知识点考察</h1><h3 id="1-redux-thunk-和-redux-saga的区别"><a href="#1-redux-thunk-和-redux-saga的区别" class="headerlink" title="1. redux-thunk 和 redux-saga的区别"></a>1. redux-thunk 和 redux-saga的区别</h3><p>redux-thunk 处理 side effect 的方式是：dispatch一个对象时不做处理；dispatch一个函数，在函数中处理异步动作，然后再dispatch一个对象</p>
 <p>redux-saga 处理 side effect的方式是：自行建立了一套事件监听机制，接管所有的action。effects 方法有take, put, call, select, fork, takeEvery, takeLatest</p>
 <h3 id="2-高阶函数和闭包"><a href="#2-高阶函数和闭包" class="headerlink" title="2. 高阶函数和闭包"></a>2. 高阶函数和闭包</h3><p>高阶函数的概念：一个函数的参数能够接受另一个函数作为参数，称之为高阶函数</p>
 <p>闭包的概念：是通过函数返回函数的的方式，改变JS的回收机制</p>
@@ -344,279 +343,29 @@
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">arr</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>];</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">length</span> = arr.<span class="title function_ invoke__">len</span>();</span><br><span class="line">    <span class="title function_ invoke__">heap_sort</span>(&amp;<span class="keyword">mut</span> arr, length);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;result ===&gt; &#123;:?&#125;&quot;</span>, arr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 堆排序总结</span></span><br><span class="line"><span class="comment">    第一步，反向构造大顶堆，</span></span><br><span class="line"><span class="comment">    第二部，首尾交换</span></span><br><span class="line"><span class="comment">    第三部：交换后正向修复大顶堆</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">heap_sort</span>(arr: &amp;<span class="keyword">mut</span> [<span class="type">i64</span>], length: <span class="type">usize</span>) &#123;</span><br><span class="line">    <span class="comment">// 构建大顶堆, 从下至上，从右向左，反向遍历所有非叶子节点，把最大值置于父节点位置</span></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">i</span> = length / <span class="number">2</span> - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> i &gt;= <span class="number">0</span> &#123;</span><br><span class="line">        <span class="title function_ invoke__">adjust_heap</span>(arr, i, length);</span><br><span class="line">        <span class="keyword">if</span> i &gt; <span class="number">0</span> &#123;</span><br><span class="line">            i -= <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">j</span> = length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> j &gt; <span class="number">0</span> &#123;</span><br><span class="line">        <span class="title function_ invoke__">swap</span>(arr, <span class="number">0</span>, j);</span><br><span class="line">        <span class="title function_ invoke__">adjust_heap</span>(arr, <span class="number">0</span>, j);</span><br><span class="line">        j -= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">adjust_heap</span>(arr: &amp;<span class="keyword">mut</span> [<span class="type">i64</span>], <span class="keyword">mut</span> i: <span class="type">usize</span>, length: <span class="type">usize</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">temp</span> = arr[i];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">k</span> = i * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 正向遍历，使二叉树符合大顶堆结构,。</span></span><br><span class="line">    <span class="comment">// 正向遍历步骤：1. 判断两个子节点的大小，将k指向较大值</span></span><br><span class="line">    <span class="comment">// 2.k指向的值与temp节点比较</span></span><br><span class="line">    <span class="keyword">while</span> k &lt; length &#123;</span><br><span class="line">        <span class="keyword">if</span> k + <span class="number">1</span> &lt; length &amp;&amp; arr[k] &lt; arr[k + <span class="number">1</span>] &#123;</span><br><span class="line">            k += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> arr[k] &gt; temp &#123;</span><br><span class="line">            arr[i] = arr[k];</span><br><span class="line">            i = k;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        k = k * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[i] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">swap</span>(arr: &amp;<span class="keyword">mut</span> [<span class="type">i64</span>], i: <span class="type">usize</span>, j: <span class="type">usize</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">temp</span> = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>堆排序实现分为 3 个步骤<br>第一步：反向构造大顶堆，<br>第二部：收尾交换<br>第三部：交换后正向修复大顶堆</p>
--->
+
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/11/frontend/interview/" data-id="cljxjznzx0001igluf8e221jv" class="article-share-link">Share</a>-->
+      <a data-url="https://blog.madaotech.top/2023/07/11/frontend/interview/" data-id="cljxjznzx0001igluf8e221jv" class="article-share-link">Share</a>
       
       
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-solana/PDA" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/07/01/solana/PDA/">PDA</a>
-    </h1>
+    <a href="/2023/07/01/solana/PDA/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">PDA</div>
+    </a>
   
+</nav>
 
-        <a href="/2023/07/01/solana/PDA/" class="article-date">
-  <time datetime="2023-07-01T21:06:24.000Z" itemprop="datePublished">2023-07-01</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p><a target="_blank" rel="noopener" href="https://blocksecteam.medium.com/secure-the-solana-ecosystem-2-calling-between-programs-5fa3d947c4ed">https://blocksecteam.medium.com/secure-the-solana-ecosystem-2-calling-between-programs-5fa3d947c4ed</a></p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/01/solana/PDA/" data-id="cljxjzo030006iglufapjc7pr" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-rust/macro" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/29/rust/macro/">macro</a>
-    </h1>
-  
-
-        <a href="/2023/06/29/rust/macro/" class="article-date">
-  <time datetime="2023-06-29T13:55:03.000Z" itemprop="datePublished">2023-06-29</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p><a target="_blank" rel="noopener" href="https://course.rs/advance/macro.html">https://course.rs/advance/macro.html</a></p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/29/rust/macro/" data-id="cljxjzo020005igluazdn899m" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-rust/FFI" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/26/rust/FFI/">FFI</a>
-    </h1>
-  
-
-        <a href="/2023/06/26/rust/FFI/" class="article-date">
-  <time datetime="2023-06-26T15:03:25.000Z" itemprop="datePublished">2023-06-26</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p><a target="_blank" rel="noopener" href="https://rustcc.cn/article?id=3b8241d0-c4ca-4f49-8e07-0a5142b00f59">https://rustcc.cn/article?id=3b8241d0-c4ca-4f49-8e07-0a5142b00f59</a></p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/FFI/" data-id="cljxjznzz0002iglu75tz9f4v" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-rust/lib" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/26/rust/lib/">lib</a>
-    </h1>
-  
-
-        <a href="/2023/06/26/rust/lib/" class="article-date">
-  <time datetime="2023-06-26T14:40:19.000Z" itemprop="datePublished">2023-06-26</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p>先看看 rust 支持哪些 crate-type</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc --help|grep crate-type</span><br></pre></td></tr></table></figure>
-
-<p>输出为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--crate-type [bin|lib|rlib|dylib|cdylib|staticlib|proc-macro]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>bin<br>bin 代表二进制可执行文件，不需要特别声明，Cargo.toml 不声明 [lib], 打包出来就是可执行二进制文件</p>
-</li>
-<li><p>lib<br>不是具体的库代表，默认使用的 rlib</p>
-</li>
-<li><p>rlib<br>rlib 是 Rust Library 特定静态中间库格式。如果只是纯 Rust 代码项目之间的依赖和调用，那么，用 rlib 就能完全满足使用需求。</p>
-</li>
-<li><p>staticlib<br>编译为静态库 会生成 .a 文件（在 Linux 和 MacOS 上），或 .lib 文件（在 Windows 上）。</p>
-</li>
-<li><p>proc-macro<br>这种 crate 里面只能导出过程宏，被导出的过程宏可以被其它 crate 引用。</p>
-</li>
-<li><p>dylib<br>会在编译的时候，生成动态库（Linux 上为 .so, MacOS 上为 .dylib, Windows 上为 .dll）。</p>
-<p>动态库是平台相关的库。动态库在被依赖并链接时，不会被链接到目标文件中。这种动态库只能被 Rust 写的程序(或遵循 Rust 内部不稳定的规范的程序)调用。这个动态库可能依赖于其它动态库（比如，Linux 下用 C 语言写的 PostgreSQL 的 libpq.so，或者另一个编译成 “dylib” 的 Rust 动态库）。</p>
-</li>
-<li><p>cdylib<br>与 dylib 类似，也会生成 .so, .dylib 或 .dll 文件。但是这种动态库可以被其它语言调用（因为几乎所有语言都有遵循 C 规范的 FFI 实现），也就是跨语言 FFI 使用。这个动态库可能依赖于其它动态库（比如，Linux 下用 C 语言写的 PostgreSQL 的 libpq.so）。</p>
-</li>
-</ul>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="cljxjzo010004iglu899ley4q" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-rust/LLVM" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/25/rust/LLVM/">LLVM</a>
-    </h1>
-  
-
-        <a href="/2023/06/25/rust/LLVM/" class="article-date">
-  <time datetime="2023-06-25T15:16:28.000Z" itemprop="datePublished">2023-06-25</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p>LLVM 是编译器架构。<br>几乎上所有的编译器的架构都是 3 段式：frontend, optimizer, backend.<br>LLVM 同样也是。<br>Frontend 进行词法分析、语法分析、语义分析、生成中间代码。<br>Optimizer 是对代码优化。<br>Backend 是将代码编译为机器码。<br><img src="/2023/06/25/rust/LLVM/old_artification.png"></p>
-<p>LLVM 把这个架构做的抽象，让不同的前端后端使用统一的中间代码 LLVM Intermediate Representation (LLVM IR)，当增加一种新的语言时，只需要关注 frontend；增加新平台时只关注 backend。<br><img src="/2023/06/25/rust/LLVM/new_artification.png"></p>
-<p>Rustc 采用的就是 LLVM 的架构。</p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/25/rust/LLVM/" data-id="cljxjzo000003iglubvy0fp60" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-algorithm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/25/algorithm/">algorithm</a>
-    </h1>
-  
-
-        <a href="/2023/06/25/algorithm/" class="article-date">
-  <time datetime="2023-06-25T11:22:19.000Z" itemprop="datePublished">2023-06-25</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/25/algorithm/" data-id="cljxjznzs0000iglu7zsw37e6" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
       </div>
