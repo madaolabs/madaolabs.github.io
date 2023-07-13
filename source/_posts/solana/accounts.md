@@ -1,7 +1,7 @@
 ---
 title: account struct
 date: 2023-07-11 17:17:58
-tags:
+tags: solana
 ---
 
 ### Account struct

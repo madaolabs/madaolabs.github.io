@@ -1,6 +1,7 @@
 ---
 title: lib
 date: 2023-06-26 14:40:19
+tags: rust
 ---
 
 先看看 rust 支持哪些 crate-type
