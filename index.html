@@ -81,15 +81,19 @@
 <li>打电话给电信客服(或者工程师)，要求开通ipv6</li>
 <li>开通路由器的ipv6功能。</li>
 <li>此时，家庭的设备就具备的ipv6地址。</li>
-<li>如果你想要从外网访问家庭设备。需要关闭光猫的防火墙(需要超级管理员，找电信工程师要就可以), 在光猫显示已经关闭的情况下还是不行。使用 <a target="_blank" rel="noopener" href="http://192.168.1.1:8080/enableTelnet.html">http://192.168.1.1:8080/enableTelnet.html</a> 开启 telnet(事后记得关闭telnet)。然后登录<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">telnet: telnet 192.168.1.1</span><br><span class="line">User:</span><br><span class="line">Password:</span><br></pre></td></tr></table></figure>
- 执行命令:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip6tables -F</span><br><span class="line">ip6tables -P INPUT ACCEPT</span><br><span class="line">ip6tables -P FORWARD ACCEPT</span><br><span class="line">ip6tables -P OUTPUT ACCEPT</span><br></pre></td></tr></table></figure>
-启动一个web服务，端口7001，做访问测试，成功。</li>
+<li>如果你想要从外网访问家庭设备。需要关闭光猫的防火墙(需要超级管理员，找电信工程师要就可以), 在光猫显示已经关闭的情况下还是不行。使用 <a target="_blank" rel="noopener" href="http://192.168.1.1:8080/enableTelnet.html">http://192.168.1.1:8080/enableTelnet.html</a> 开启 telnet(事后记得关闭telnet)。</li>
 </ol>
+<p>telnet登录命令：<br>   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">telnet: telnet 192.168.1.1</span><br><span class="line">User:</span><br><span class="line">Password:</span><br></pre></td></tr></table></figure></p>
+<pre><code>执行命令:
+</code></pre>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip6tables -F</span><br><span class="line">ip6tables -P INPUT ACCEPT</span><br><span class="line">ip6tables -P FORWARD ACCEPT</span><br><span class="line">ip6tables -P OUTPUT ACCEPT</span><br></pre></td></tr></table></figure>
+
+<p>启动一个web服务，端口7001，做访问测试，成功。</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/08/09/devops/ipv6/" data-id="cll306q6x0001l8ox0oul55if" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/08/09/devops/ipv6/" data-id="cll30kv910001jionaadohhza" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -131,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/27/knowledgeOfComputer/bytesAndChar/" data-id="cll306q770005l8ox68j75vhq" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/27/knowledgeOfComputer/bytesAndChar/" data-id="cll30kv990005jion1hte8qr1" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">计算机基础知识</a></li></ul>
@@ -170,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/14/cryptography/" data-id="cll306q6p0000l8ox4rxz022b" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/14/cryptography/" data-id="cll30kv8v0000jiong15o8rd9" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -208,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/13/frontend/packageJson/" data-id="cll306q710003l8oxgi2y4s0x" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/13/frontend/packageJson/" data-id="cll30kv950003jiongqcffswb" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
@@ -251,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/11/solana/accounts/" data-id="cll306q7h000fl8ox3xo7087g" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/11/solana/accounts/" data-id="cll30kv9i000fjionhsueb9do" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solana/" rel="tag">solana</a></li></ul>
@@ -570,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/11/frontend/interview/" data-id="cll306q700002l8ox9ur0fu04" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/11/frontend/interview/" data-id="cll30kv940002jion9c11d5b7" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
@@ -609,7 +613,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/01/solana/PDA/" data-id="cll306q7g000el8ox6vxlb512" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/01/solana/PDA/" data-id="cll30kv9h000ejioncq189e11" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solana/" rel="tag">solana</a></li></ul>
@@ -648,7 +652,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/29/rust/macro/" data-id="cll306q7e000bl8ox5sgy5qqd" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/29/rust/macro/" data-id="cll30kv9f000bjion6gee0kd0" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
@@ -687,7 +691,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/FFI/" data-id="cll306q780006l8ox3dxa30o8" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/FFI/" data-id="cll30kv9a0006jionef1299g5" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
@@ -748,7 +752,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="cll306q7d000al8oxhzd45zdd" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="cll30kv9e000ajion49jgdyzm" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
