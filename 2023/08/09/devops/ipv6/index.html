@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>ipv6 | MadaoTech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ipv6的在国内普及度越来越高。家庭的宽带也可以使用ipv6，并且也可以从外网访问，还有重要的一点是免费。 家庭接入宽带的路径是：广域网 -&gt; 光猫(调制解调器) -&gt; 路由器 -&gt; 电脑等设备。 下面是我的开通流程。我家里是接的是电信宽带。  打电话给电信客服(或者工程师)，要求开通ipv6 开通路由器的ipv6功能。 此时，家庭的设备就具备的ipv6地址。 如果你想要从外网访">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ipv6">
+<meta property="og:url" content="https://blog.madaotech.top/2023/08/09/devops/ipv6/index.html">
+<meta property="og:site_name" content="MadaoTech">
+<meta property="og:description" content="ipv6的在国内普及度越来越高。家庭的宽带也可以使用ipv6，并且也可以从外网访问，还有重要的一点是免费。 家庭接入宽带的路径是：广域网 -&gt; 光猫(调制解调器) -&gt; 路由器 -&gt; 电脑等设备。 下面是我的开通流程。我家里是接的是电信宽带。  打电话给电信客服(或者工程师)，要求开通ipv6 开通路由器的ipv6功能。 此时，家庭的设备就具备的ipv6地址。 如果你想要从外网访">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-09T08:17:12.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:39:38.330Z">
+<meta property="article:author" content="Robin">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="MadaoTech" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">MadaoTech</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-devops/ipv6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ipv6
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ipv6的在国内普及度越来越高。家庭的宽带也可以使用ipv6，并且也可以从外网访问，还有重要的一点是免费。</p>
+<p>家庭接入宽带的路径是：广域网 -&gt; 光猫(调制解调器) -&gt; 路由器 -&gt; 电脑等设备。</p>
+<p>下面是我的开通流程。我家里是接的是电信宽带。</p>
+<ol>
+<li>打电话给电信客服(或者工程师)，要求开通ipv6</li>
+<li>开通路由器的ipv6功能。</li>
+<li>此时，家庭的设备就具备的ipv6地址。</li>
+<li>如果你想要从外网访问家庭设备。需要关闭光猫的防火墙(需要超级管理员，找电信工程师要就可以), 在光猫显示已经关闭的情况下还是不行。使用 <a target="_blank" rel="noopener" href="http://192.168.1.1:8080/enableTelnet.html">http://192.168.1.1:8080/enableTelnet.html</a> 开启 telnet(事后记得关闭telnet)。然后登录<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">telnet: telnet 192.168.1.1</span><br><span class="line">User:</span><br><span class="line">Password:</span><br></pre></td></tr></table></figure>
+ 执行命令:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip6tables -F</span><br><span class="line">ip6tables -P INPUT ACCEPT</span><br><span class="line">ip6tables -P FORWARD ACCEPT</span><br><span class="line">ip6tables -P OUTPUT ACCEPT</span><br></pre></td></tr></table></figure>
+启动一个web服务，端口7001，做访问测试，成功。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.madaotech.top/2023/08/09/devops/ipv6/" data-id="cll306q6x0001l8ox0oul55if" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/07/27/knowledgeOfComputer/bytesAndChar/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">字节与字符</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Robin<br />
+      <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a> -->
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
