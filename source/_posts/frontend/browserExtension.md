@@ -16,7 +16,8 @@ tags:
 2. action
 3. options_ui
 4. content_scripts
-5. 特别提到 injected_script 不在 manifest 配置中, 但是可以通过 content_scripts 给页面插入 injected_script
+5. **特别提到 injected_script 不在 manifest 配置中, 但是可以通过 content_scripts 给页面插入 injected_script**
+
 ![](manifest.webp)
 
 #### 各部分之间的通信
