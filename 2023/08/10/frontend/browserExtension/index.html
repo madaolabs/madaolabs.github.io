@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>浏览器插件 | MadaoTech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="介绍浏览器插件学习体系大致分为两个部分：  manifest.json 中字段含义 各部分之间的通信  manifest.json直接学习：https:&#x2F;&#x2F;developer.chrome.com&#x2F;docs&#x2F;extensions&#x2F;mv3&#x2F;manifest&#x2F;主要包括:  background action options_ui content_scripts 特别提到 injected_script">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器插件">
+<meta property="og:url" content="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/index.html">
+<meta property="og:site_name" content="MadaoTech">
+<meta property="og:description" content="介绍浏览器插件学习体系大致分为两个部分：  manifest.json 中字段含义 各部分之间的通信  manifest.json直接学习：https:&#x2F;&#x2F;developer.chrome.com&#x2F;docs&#x2F;extensions&#x2F;mv3&#x2F;manifest&#x2F;主要包括:  background action options_ui content_scripts 特别提到 injected_script">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/manifest.webp">
+<meta property="og:image" content="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/communication.webp">
+<meta property="article:published_time" content="2023-08-10T23:08:23.000Z">
+<meta property="article:modified_time" content="2023-08-10T15:39:25.663Z">
+<meta property="article:author" content="Robin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/manifest.webp">
+  
+    <link rel="alternate" href="/atom.xml" title="MadaoTech" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">MadaoTech</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-frontend/browserExtension" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浏览器插件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>浏览器插件学习体系大致分为两个部分：</p>
+<ol>
+<li>manifest.json 中字段含义</li>
+<li>各部分之间的通信</li>
+</ol>
+<h4 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h4><p>直接学习：<a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/manifest/">https://developer.chrome.com/docs/extensions/mv3/manifest/</a><br>主要包括:</p>
+<ol>
+<li>background</li>
+<li>action</li>
+<li>options_ui</li>
+<li>content_scripts</li>
+<li>特别提到 injected_script 不在 manifest 配置中, 但是可以通过 content_scripts 给页面插入 injected_script<br><img src="/2023/08/10/frontend/browserExtension/manifest.webp"></li>
+</ol>
+<h4 id="各部分之间的通信"><a href="#各部分之间的通信" class="headerlink" title="各部分之间的通信"></a>各部分之间的通信</h4><ol>
+<li>popup和background之间的通信</li>
+<li>background和content之间的通信</li>
+<li>popup和content之间的通信</li>
+</ol>
+<p><img src="/2023/08/10/frontend/browserExtension/communication.webp"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/" data-id="cll5brlxr0002kponev0e7uj0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/08/09/devops/ipv6/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">ipv6</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Robin<br />
+      <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a> -->
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
