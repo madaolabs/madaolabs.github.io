@@ -10,8 +10,8 @@ tags:
 2. 各部分之间的通信
 
 #### manifest.json
-直接学习：https://developer.chrome.com/docs/extensions/mv3/manifest/
-主要包括:
+相关文档：https://developer.chrome.com/docs/extensions/mv3/manifest/
+主要组成部分:
 1. background
 2. action
 3. options_ui
@@ -21,8 +21,12 @@ tags:
 ![](manifest.webp)
 
 #### 各部分之间的通信
+相关文档: https://developer.chrome.com/docs/extensions/mv3/messaging/
+
 1. popup和background之间的通信
 2. background和content之间的通信
 3. popup和content之间的通信
+
+
 
 ![](communication.webp)
