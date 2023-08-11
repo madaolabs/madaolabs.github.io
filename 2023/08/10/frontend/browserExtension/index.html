@@ -7,17 +7,17 @@
   
   <title>浏览器插件 | MadaoTech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍浏览器插件学习体系大致分为两个部分：  manifest.json 中字段含义 各部分之间的通信  manifest.json直接学习：https:&#x2F;&#x2F;developer.chrome.com&#x2F;docs&#x2F;extensions&#x2F;mv3&#x2F;manifest&#x2F;主要包括:  background action options_ui content_scripts 特别提到 injected_script">
+  <meta name="description" content="介绍浏览器插件学习体系大致分为两个部分：  manifest.json 中字段含义 各部分之间的通信  manifest.json相关文档：https:&#x2F;&#x2F;developer.chrome.com&#x2F;docs&#x2F;extensions&#x2F;mv3&#x2F;manifest&#x2F;主要组成部分:  background action options_ui content_scripts 特别提到 injected_scri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器插件">
 <meta property="og:url" content="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/index.html">
 <meta property="og:site_name" content="MadaoTech">
-<meta property="og:description" content="介绍浏览器插件学习体系大致分为两个部分：  manifest.json 中字段含义 各部分之间的通信  manifest.json直接学习：https:&#x2F;&#x2F;developer.chrome.com&#x2F;docs&#x2F;extensions&#x2F;mv3&#x2F;manifest&#x2F;主要包括:  background action options_ui content_scripts 特别提到 injected_script">
+<meta property="og:description" content="介绍浏览器插件学习体系大致分为两个部分：  manifest.json 中字段含义 各部分之间的通信  manifest.json相关文档：https:&#x2F;&#x2F;developer.chrome.com&#x2F;docs&#x2F;extensions&#x2F;mv3&#x2F;manifest&#x2F;主要组成部分:  background action options_ui content_scripts 特别提到 injected_scri">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/manifest.webp">
 <meta property="og:image" content="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/communication.webp">
 <meta property="article:published_time" content="2023-08-10T23:08:23.000Z">
-<meta property="article:modified_time" content="2023-08-10T15:48:57.849Z">
+<meta property="article:modified_time" content="2023-08-11T00:31:26.320Z">
 <meta property="article:author" content="Robin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/manifest.webp">
@@ -81,7 +81,7 @@
 <li>manifest.json 中字段含义</li>
 <li>各部分之间的通信</li>
 </ol>
-<h4 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h4><p>直接学习：<a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/manifest/">https://developer.chrome.com/docs/extensions/mv3/manifest/</a><br>主要包括:</p>
+<h4 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h4><p>相关文档：<a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/manifest/">https://developer.chrome.com/docs/extensions/mv3/manifest/</a><br>主要组成部分:</p>
 <ol>
 <li>background</li>
 <li>action</li>
@@ -90,7 +90,8 @@
 <li><strong>特别提到 injected_script 不在 manifest 配置中, 但是可以通过 content_scripts 给页面插入 injected_script</strong></li>
 </ol>
 <p><img src="/2023/08/10/frontend/browserExtension/manifest.webp"></p>
-<h4 id="各部分之间的通信"><a href="#各部分之间的通信" class="headerlink" title="各部分之间的通信"></a>各部分之间的通信</h4><ol>
+<h4 id="各部分之间的通信"><a href="#各部分之间的通信" class="headerlink" title="各部分之间的通信"></a>各部分之间的通信</h4><p>相关文档: <a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/messaging/">https://developer.chrome.com/docs/extensions/mv3/messaging/</a></p>
+<ol>
 <li>popup和background之间的通信</li>
 <li>background和content之间的通信</li>
 <li>popup和content之间的通信</li>
@@ -100,7 +101,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/" data-id="cll5c3whn0002igom483g7ir5" class="article-share-link">Share</a>
+      <a data-url="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/" data-id="cll5urw2t0002iwne95tuh1m8" class="article-share-link">Share</a>
       
       
     </footer>
