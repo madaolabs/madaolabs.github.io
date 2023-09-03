@@ -9,16 +9,18 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
-    <meta name="description" content="最近把移动版钱包的架构已经全部应用简洁架构。整体感受这套架构非常适合重前端的应用。 目录结构123456789├src| ├─_api| ├─_app| ├─_domain| ├─_lib| ├─_services| ├─_test| ├─_ui  _ui: 所有的页面，组件，资源 都会在这个目录下。_api: UI 层去调用这一层，相当于简洁架构的 adapter，负责逻辑的组装。_app: a">
+    <meta name="description" content="最近把移动版钱包的架构已经全部应用简洁架构。整体感受这套架构非常适合重前端的应用。 目录结构123456789├src| ├─_api| ├─_app| ├─_domain| ├─_lib| ├─_services| ├─_test| ├─_ui  _ui: 所有的页面，组件，资源 都会在这个目录下。这里负责页面的渲染以及调用_api 层。_api: UI 层去调用这一层，相当于简洁架构的 ada">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简洁架构">
 <meta property="og:url" content="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/index.html">
 <meta property="og:site_name" content="Madaolabs">
-<meta property="og:description" content="最近把移动版钱包的架构已经全部应用简洁架构。整体感受这套架构非常适合重前端的应用。 目录结构123456789├src| ├─_api| ├─_app| ├─_domain| ├─_lib| ├─_services| ├─_test| ├─_ui  _ui: 所有的页面，组件，资源 都会在这个目录下。_api: UI 层去调用这一层，相当于简洁架构的 adapter，负责逻辑的组装。_app: a">
+<meta property="og:description" content="最近把移动版钱包的架构已经全部应用简洁架构。整体感受这套架构非常适合重前端的应用。 目录结构123456789├src| ├─_api| ├─_app| ├─_domain| ├─_lib| ├─_services| ├─_test| ├─_ui  _ui: 所有的页面，组件，资源 都会在这个目录下。这里负责页面的渲染以及调用_api 层。_api: UI 层去调用这一层，相当于简洁架构的 ada">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.madaotech.top/old_artification.png">
 <meta property="article:published_time" content="2023-08-21T10:40:27.000Z">
-<meta property="article:modified_time" content="2023-08-21T03:57:48.592Z">
-<meta name="twitter:card" content="summary">  
+<meta property="article:modified_time" content="2023-09-03T06:33:48.347Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.madaotech.top/old_artification.png">  
     <link rel="icon" href="/favicon.ico" />
      
     <link
@@ -82,13 +84,13 @@
         <p>最近把移动版钱包的架构已经全部应用简洁架构。整体感受这套架构非常适合<strong>重前端</strong>的应用。</p>
 <h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">├src</span><br><span class="line">| ├─_api</span><br><span class="line">| ├─_app</span><br><span class="line">| ├─_domain</span><br><span class="line">| ├─_lib</span><br><span class="line">| ├─_services</span><br><span class="line">| ├─_test</span><br><span class="line">| ├─_ui</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><strong>_ui</strong>: 所有的页面，组件，资源 都会在这个目录下。<br><strong>_api</strong>: UI 层去调用这一层，相当于简洁架构的 adapter，负责逻辑的<strong>组装</strong>。<br><strong>_app</strong>: api 层去调用这一层，这里所有的方法要求是纯函数，要求必须走单元测试。负责真正的逻辑处理。<br><strong>_domain</strong>: 核心层，主要定义数据结构和各个数据结构之间的转换。<br><strong>_test</strong>: _domain 和 _app 的单元测试。<br><strong>_services</strong>: 依赖的外部服务，比如网络请求，合约，浏览器 API 等。<br><strong>_lib</strong>: 一些公共的配置，公共常量等信息</p>
-<h3 id="migration"><a href="#migration" class="headerlink" title="migration"></a>migration</h3><p>大多数应用的都会用到状态管理库, 调用流程通常是: UI 层调用 StateManagement 层.<br>在 Clean Architecture 中，我将 StateManagement 转换为 _api。</p>
+<p><strong>_ui</strong>: 所有的页面，组件，资源 都会在这个目录下。这里负责页面的渲染以及调用_api 层。<br><strong>_api</strong>: UI 层去调用这一层，相当于简洁架构的 adapter，负责逻辑的<strong>组装</strong>。<br><strong>_app</strong>: api 层去调用这一层，这里所有的方法要求是纯函数，要求必须走单元测试。负责真正的逻辑处理。<br><strong>_domain</strong>: 核心层，主要定义数据结构和各个数据结构之间的转换。<br><strong>_test</strong>: _domain 和 _app 的单元测试。<br><strong>_services</strong>: 依赖的外部服务，比如网络请求，合约，浏览器 API 等。<br><strong>_lib</strong>: 一些公共的配置，公共常量等信息</p>
+<h3 id="简洁架构图"><a href="#简洁架构图" class="headerlink" title="简洁架构图"></a>简洁架构图</h3><p><img src="/old_artification.png"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/" data-id="cllkcjqbu0001mjojer2se38q" class="article-share-link">Share</a>
+      <a data-url="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/" data-id="clm32ufq00001mfoo7tsmalvi" class="article-share-link">Share</a>
       
       
     </footer>
