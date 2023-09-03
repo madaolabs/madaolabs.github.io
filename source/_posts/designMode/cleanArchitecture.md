@@ -30,4 +30,4 @@ tags:
 
 ### 简洁架构图
 
-![](old_artification.png)
+![](cleanarchitecture.png)
