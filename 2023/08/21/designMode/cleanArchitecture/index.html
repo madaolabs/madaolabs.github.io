@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    
- 
-    <title>简洁架构 | Madaolabs</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
-    <meta name="description" content="最近把移动版钱包的架构已经全部应用简洁架构。整体感受这套架构非常适合重前端的应用。 目录结构123456789├src| ├─_api| ├─_app| ├─_domain| ├─_lib| ├─_services| ├─_test| ├─_ui  _ui: 所有的页面，组件，资源 都会在这个目录下。这里负责页面的渲染以及调用_api 层。_api: UI 层去调用这一层，相当于简洁架构的 ada">
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>简洁架构 | Madaolabs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近把移动版钱包的架构已经全部应用简洁架构。整体感受这套架构非常适合重前端的应用。 目录结构123456789├src| ├─_api| ├─_app| ├─_domain| ├─_lib| ├─_services| ├─_test| ├─_ui  _ui: 所有的页面，组件，资源 都会在这个目录下。这里负责页面的渲染以及调用_api 层。_api: UI 层去调用这一层，相当于简洁架构的 ada">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简洁架构">
 <meta property="og:url" content="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/index.html">
@@ -18,26 +16,23 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/cleanarchitecture.png">
 <meta property="article:published_time" content="2023-08-21T10:40:27.000Z">
-<meta property="article:modified_time" content="2023-09-03T07:09:36.157Z">
+<meta property="article:modified_time" content="2023-09-06T01:27:24.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/cleanarchitecture.png">  
-    <link rel="icon" href="/favicon.ico" />
-     
-    <link
-      href="//fonts.loli.net/css?family=Source+Code+Pro"
-      rel="stylesheet"
-      type="text/css"
-    />
-    
-    <link
-      href="https://fonts.loli.net/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean"
-      rel="stylesheet"
-    />
-    
+<meta name="twitter:image" content="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/cleanarchitecture.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Madaolabs" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
 <link rel="stylesheet" href="/css/style.css">
 
-  <meta name="generator" content="Hexo 6.3.0"></head>
-</html>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
   <div id="container">
@@ -47,14 +42,12 @@
   <div id="header-outer" class="outer">
     <div id="header-inner" class="inner">
       <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"> </a>
-        <a href="/" id="main-nav-title" class="main-nav-link">
-          Madaolabs</a
-        >
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Madaolabs</a>
         
-        <a class="main-nav-link" href="/archives/"
-          >Archives</a
-        >
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
         
       </nav>
     </div>
@@ -90,7 +83,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/" data-id="clm344esq0001l4p0aygc9s15" class="article-share-link">Share</a>
+      <a data-url="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/" data-id="clm727ymz0002jkomd6r7cvuw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -98,6 +91,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2023/09/06/book/theWayOfTurtle/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          海龟交易法则
+        
+      </div>
+    </a>
   
   
     <a href="/2023/08/10/frontend/browserExtension/" id="article-nav-older" class="article-nav-link-wrap">
@@ -116,7 +118,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2023, Madaolabs<br />
+      &copy; 2023 Madaolabs<br />
       <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
       theme_by <a href="http://hexo.io/" target="_blank">mango</a> -->
     </div>
@@ -126,20 +128,28 @@
     </div>
     <nav id="mobile-nav">
   
+    <a href="/" class="mobile-nav-link">Home</a>
+  
     <a href="/archives/" class="mobile-nav-link">Archives</a>
   
 </nav>
     
 
-<script src="//ajax.loli.net/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
- 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
- 
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
   
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
 <script src="/js/script.js"></script>
- 
+
+
 
 
   </div>
