@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+ 
+    <title>以太坊中的secp256k1 | Madaolabs</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="description" content="非对称加密在工作中是经常用到的，比如有 RSA，ED25519，secp256k1. 在区块链生态大多数公链使用的 secp256k1, 比如：eth。除此之外也有少数公链使用的 ed25519，比如：solana. 通常在非对称加密我们使用私钥签名，用公钥验证。secp256k1 可以在不知道公钥的情况下验证：通过签名结果+原数据可以得出公钥来。 secp256k1 整体流程：  生成公私钥 公">
+<meta property="og:type" content="article">
+<meta property="og:title" content="以太坊中的secp256k1">
+<meta property="og:url" content="https://blog.madaotech.top/2023/09/26/knowledgeOfComputer/secp256k1/index.html">
+<meta property="og:site_name" content="Madaolabs">
+<meta property="og:description" content="非对称加密在工作中是经常用到的，比如有 RSA，ED25519，secp256k1. 在区块链生态大多数公链使用的 secp256k1, 比如：eth。除此之外也有少数公链使用的 ed25519，比如：solana. 通常在非对称加密我们使用私钥签名，用公钥验证。secp256k1 可以在不知道公钥的情况下验证：通过签名结果+原数据可以得出公钥来。 secp256k1 整体流程：  生成公私钥 公">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-26T17:05:23.000Z">
+<meta property="article:modified_time" content="2023-09-26T10:05:41.312Z">
+<meta name="twitter:card" content="summary">  
+    <link rel="icon" href="/favicon.ico" />
+     
+    <link
+      href="//fonts.loli.net/css?family=Source+Code+Pro"
+      rel="stylesheet"
+      type="text/css"
+    />
+    
+    <link
+      href="https://fonts.loli.net/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean"
+      rel="stylesheet"
+    />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  <meta name="generator" content="Hexo 6.3.0"></head>
+</html>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"> </a>
+        <a href="/" id="main-nav-title" class="main-nav-link">
+          Madaolabs</a
+        >
+        
+        <a class="main-nav-link" href="/archives/"
+          >Archives</a
+        >
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-knowledgeOfComputer/secp256k1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      以太坊中的secp256k1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>非对称加密在工作中是经常用到的，比如有 RSA，ED25519，secp256k1.</p>
+<p>在区块链生态大多数公链使用的 secp256k1, 比如：eth。除此之外也有少数公链使用的 ed25519，比如：solana.</p>
+<p>通常在非对称加密我们使用私钥签名，用公钥验证。secp256k1 可以在不知道公钥的情况下验证：通过<strong>签名结果</strong>+<strong>原数据</strong>可以得出<strong>公钥</strong>来。</p>
+<p>secp256k1 整体流程：</p>
+<ol>
+<li>生成公私钥</li>
+<li>公钥 -&gt; 地址：keccak256(公钥)取后 20 位就是地址</li>
+<li>私钥签名: 在 sepc256k1 中，使用私钥签名，签名结果 65 字节，可以分为：r，s，v。r: 32 字节, s: 32 字节，v: 1 字节。<br>在 EVM 中：<br>signature &#x3D; r+s<br>recovery &#x3D; v + 27;</li>
+<li>还原公钥：根据 message(原数据) + signature + recovery</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.madaotech.top/2023/09/26/knowledgeOfComputer/secp256k1/" data-id="cln05jjqz000akxp47ayxa7w2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/09/10/book/startup/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">创业分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023, Madaolabs<br />
+      <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a> -->
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.loli.net/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+ 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+ 
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<script src="/js/script.js"></script>
+ 
+
+
+  </div>
+</body>
+</html>
