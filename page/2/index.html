@@ -58,6 +58,89 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-frontend/packageJson" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/07/13/frontend/packageJson/">package.json</a>
+    </h1>
+  
+
+        <a href="/2023/07/13/frontend/packageJson/" class="article-date">
+  <time datetime="2023-07-13T08:41:52.000Z" itemprop="datePublished">2023-07-13</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p><a target="_blank" rel="noopener" href="https://docs.npmjs.com/cli/v9/configuring-npm/package-json">https://docs.npmjs.com/cli/v9/configuring-npm/package-json</a></p>
+<h4 id="main-vs-module-vs-browser"><a href="#main-vs-module-vs-browser" class="headerlink" title="main vs module vs browser"></a>main vs module vs browser</h4><p><a target="_blank" rel="noopener" href="https://github.com/SunshowerC/blog/issues/8">https://github.com/SunshowerC/blog/issues/8</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://blog.madaotech.top/2023/07/13/frontend/packageJson/" data-id="cln1blicn0007khom11r6cosq" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-solana/accounts" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/07/11/solana/accounts/">account struct</a>
+    </h1>
+  
+
+        <a href="/2023/07/11/solana/accounts/" class="article-date">
+  <time datetime="2023-07-11T17:17:58.000Z" itemprop="datePublished">2023-07-11</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<h3 id="Account-struct"><a href="#Account-struct" class="headerlink" title="Account struct"></a>Account struct</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">struct</span> <span class="title class_">AccountInfo</span>&lt;<span class="symbol">&#x27;a</span>&gt; &#123;</span><br><span class="line">    <span class="comment">/// Public key of the account</span></span><br><span class="line">    <span class="keyword">pub</span> key: &amp;<span class="symbol">&#x27;a</span> Pubkey,</span><br><span class="line">    <span class="comment">/// Was the transaction signed by this account&#x27;s public key?</span></span><br><span class="line">    <span class="keyword">pub</span> is_signer: <span class="type">bool</span>,</span><br><span class="line">    <span class="comment">/// Is the account writable?</span></span><br><span class="line">    <span class="keyword">pub</span> is_writable: <span class="type">bool</span>,</span><br><span class="line">    <span class="comment">/// The lamports in the account.  Modifiable by programs.</span></span><br><span class="line">    <span class="keyword">pub</span> lamports: Rc&lt;RefCell&lt;&amp;<span class="symbol">&#x27;a</span> <span class="keyword">mut</span> <span class="type">u128</span>&gt;&gt;,</span><br><span class="line">    <span class="comment">/// The data held in this account.  Modifiable by programs.</span></span><br><span class="line">    <span class="keyword">pub</span> data: Rc&lt;RefCell&lt;&amp;<span class="symbol">&#x27;a</span> <span class="keyword">mut</span> [<span class="type">u8</span>]&gt;&gt;,</span><br><span class="line">    <span class="comment">/// Program that owns this account</span></span><br><span class="line">    <span class="keyword">pub</span> owner: &amp;<span class="symbol">&#x27;a</span> Pubkey,</span><br><span class="line">    <span class="comment">/// This account&#x27;s data contains a loaded program (and is now read-only)</span></span><br><span class="line">    <span class="keyword">pub</span> executable: <span class="type">bool</span>,</span><br><span class="line">    <span class="comment">/// The epoch at which this account will next owe rent</span></span><br><span class="line">    <span class="keyword">pub</span> rent_epoch: Epoch,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Account-data-field-for-mint-account-struct"><a href="#Account-data-field-for-mint-account-struct" class="headerlink" title="Account data field for mint account struct"></a>Account data field for mint account struct</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">struct</span> <span class="title class_">Mint</span> &#123;</span><br><span class="line">    <span class="comment">/// Optional authority used to mint new tokens. The mint authority may only be provided during</span></span><br><span class="line">    <span class="comment">/// mint creation. If no mint authority is present then the mint has a fixed supply and no</span></span><br><span class="line">    <span class="comment">/// further tokens may be minted.</span></span><br><span class="line">    <span class="keyword">pub</span> mint_authority: COption&lt;Pubkey&gt;,</span><br><span class="line">    <span class="comment">/// Total supply of tokens.</span></span><br><span class="line">    <span class="keyword">pub</span> supply: <span class="type">u128</span>,</span><br><span class="line">    <span class="comment">/// Number of base 10 digits to the right of the decimal place.</span></span><br><span class="line">    <span class="keyword">pub</span> decimals: <span class="type">u8</span>,</span><br><span class="line">    <span class="comment">/// Is `true` if this structure has been initialized</span></span><br><span class="line">    <span class="keyword">pub</span> is_initialized: <span class="type">bool</span>,</span><br><span class="line">    <span class="comment">/// Optional authority to freeze token accounts.</span></span><br><span class="line">    <span class="keyword">pub</span> freeze_authority: COption&lt;Pubkey&gt;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Account-data-field-for-token-account-struct"><a href="#Account-data-field-for-token-account-struct" class="headerlink" title="Account data field for token account struct"></a>Account data field for token account struct</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">struct</span> <span class="title class_">Account</span> &#123;</span><br><span class="line">    <span class="comment">/// The mint associated with this account</span></span><br><span class="line">    <span class="keyword">pub</span> mint: Pubkey,</span><br><span class="line">    <span class="comment">/// The owner of this account.</span></span><br><span class="line">    <span class="keyword">pub</span> owner: Pubkey,</span><br><span class="line">    <span class="comment">/// The amount of tokens this account holds.</span></span><br><span class="line">    <span class="keyword">pub</span> amount: <span class="type">u128</span>,</span><br><span class="line">    <span class="comment">/// If `delegate` is `Some` then `delegated_amount` represents</span></span><br><span class="line">    <span class="comment">/// the amount authorized by the delegate</span></span><br><span class="line">    <span class="keyword">pub</span> delegate: COption&lt;Pubkey&gt;,</span><br><span class="line">    <span class="comment">/// The account&#x27;s state</span></span><br><span class="line">    <span class="keyword">pub</span> state: AccountState,</span><br><span class="line">    <span class="comment">/// If is_some, this is a native token, and the value logs the rent-exempt reserve. An Account</span></span><br><span class="line">    <span class="comment">/// is required to be rent-exempt, so the value is used by the Processor to ensure that wrapped</span></span><br><span class="line">    <span class="comment">/// PUT accounts do not drop below this threshold.</span></span><br><span class="line">    <span class="keyword">pub</span> is_native: COption&lt;<span class="type">u128</span>&gt;,</span><br><span class="line">    <span class="comment">/// The amount delegated</span></span><br><span class="line">    <span class="keyword">pub</span> delegated_amount: <span class="type">u128</span>,</span><br><span class="line">    <span class="comment">/// Optional authority to close the account.</span></span><br><span class="line">    <span class="keyword">pub</span> close_authority: COption&lt;Pubkey&gt;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://blog.madaotech.top/2023/07/11/solana/accounts/" data-id="cln1blid4000qkhomdsvq7h9l" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solana/" rel="tag">solana</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-frontend/interview" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -365,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/11/frontend/interview/" data-id="cln05jjqt0006kxp4ft1ybxk7" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/11/frontend/interview/" data-id="cln1blicm0006khom28xvfa31" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
@@ -404,7 +487,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/01/solana/PDA/" data-id="cln05jjr5000jkxp4daqmbdb7" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/01/solana/PDA/" data-id="cln1blid2000nkhomd7xz35vo" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solana/" rel="tag">solana</a></li></ul>
@@ -443,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/29/rust/macro/" data-id="cln05jjr5000ikxp4bpfccexl" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/29/rust/macro/" data-id="cln1blid0000jkhombyrt2mpd" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
@@ -482,7 +565,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/FFI/" data-id="cln05jjr0000bkxp4f6gq4f3n" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/FFI/" data-id="cln1blicu000bkhom25gi4s2t" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
@@ -543,7 +626,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="cln05jjr3000fkxp44gaqf3tl" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="cln1blicz000ikhom83lx5frq" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
@@ -584,7 +667,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/25/rust/LLVM/" data-id="cln05jjr3000ekxp4glyady1k" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/25/rust/LLVM/" data-id="cln1blicx000ekhomg4ybc2zr" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+ 
+    <title>Trait | Madaolabs</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="description" content="trait 和 trait object（特征对象）特征对象表示：实现了某个特征的实例, 比如： 123456789101112131415161718192021222324252627282930313233343536373839trait Draw &amp;#123;    fn draw(&amp;self) -&gt; String;&amp;#125;impl Draw for u8 &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Trait">
+<meta property="og:url" content="https://blog.madaotech.top/2023/09/27/rust/trait/index.html">
+<meta property="og:site_name" content="Madaolabs">
+<meta property="og:description" content="trait 和 trait object（特征对象）特征对象表示：实现了某个特征的实例, 比如： 123456789101112131415161718192021222324252627282930313233343536373839trait Draw &amp;#123;    fn draw(&amp;self) -&gt; String;&amp;#125;impl Draw for u8 &amp;#123;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-27T13:40:06.000Z">
+<meta property="article:modified_time" content="2023-09-27T05:42:58.666Z">
+<meta property="article:tag" content="rust">
+<meta name="twitter:card" content="summary">  
+    <link rel="icon" href="/favicon.ico" />
+     
+    <link
+      href="//fonts.loli.net/css?family=Source+Code+Pro"
+      rel="stylesheet"
+      type="text/css"
+    />
+    
+    <link
+      href="https://fonts.loli.net/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean"
+      rel="stylesheet"
+    />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  <meta name="generator" content="Hexo 6.3.0"></head>
+</html>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"> </a>
+        <a href="/" id="main-nav-title" class="main-nav-link">
+          Madaolabs</a
+        >
+        
+        <a class="main-nav-link" href="/archives/"
+          >Archives</a
+        >
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-rust/trait" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Trait
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>trait 和 trait object（特征对象）<br>特征对象表示：实现了某个特征的实例, 比如：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">trait</span> <span class="title class_">Draw</span> &#123;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">draw</span>(&amp;<span class="keyword">self</span>) <span class="punctuation">-&gt;</span> <span class="type">String</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Draw</span> <span class="keyword">for</span> <span class="title class_">u8</span> &#123;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">draw</span>(&amp;<span class="keyword">self</span>) <span class="punctuation">-&gt;</span> <span class="type">String</span> &#123;</span><br><span class="line">        <span class="built_in">format!</span>(<span class="string">&quot;u8: &#123;&#125;&quot;</span>, *<span class="keyword">self</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Draw</span> <span class="keyword">for</span> <span class="title class_">f64</span> &#123;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">draw</span>(&amp;<span class="keyword">self</span>) <span class="punctuation">-&gt;</span> <span class="type">String</span> &#123;</span><br><span class="line">        <span class="built_in">format!</span>(<span class="string">&quot;f64: &#123;&#125;&quot;</span>, *<span class="keyword">self</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若 T 实现了 Draw 特征， 则调用该函数时传入的 Box&lt;T&gt; 可以被隐式转换成函数参数签名中的 Box&lt;dyn Draw&gt;</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">draw1</span>(x: <span class="type">Box</span>&lt;<span class="keyword">dyn</span> Draw&gt;) &#123;</span><br><span class="line">    <span class="comment">// 由于实现了 Deref 特征，Box 智能指针会自动解引用为它所包裹的值，然后调用该值对应的类型上定义的 `draw` 方法</span></span><br><span class="line">    x.<span class="title function_ invoke__">draw</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">draw2</span>(x: &amp;<span class="keyword">dyn</span> Draw) &#123;</span><br><span class="line">    x.<span class="title function_ invoke__">draw</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">x</span> = <span class="number">1.1f64</span>;</span><br><span class="line">    <span class="comment">// do_something(&amp;x);</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">y</span> = <span class="number">8u8</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// x 和 y 的类型 T 都实现了 `Draw` 特征，因为 Box&lt;T&gt; 可以在函数调用时隐式地被转换为特征对象 Box&lt;dyn Draw&gt;</span></span><br><span class="line">    <span class="comment">// 基于 x 的值创建一个 Box&lt;f64&gt; 类型的智能指针，指针指向的数据被放置在了堆上</span></span><br><span class="line">    <span class="title function_ invoke__">draw1</span>(<span class="type">Box</span>::<span class="title function_ invoke__">new</span>(x));</span><br><span class="line">    <span class="comment">// 基于 y 的值创建一个 Box&lt;u8&gt; 类型的智能指针</span></span><br><span class="line">    <span class="title function_ invoke__">draw1</span>(<span class="type">Box</span>::<span class="title function_ invoke__">new</span>(y));</span><br><span class="line">    <span class="title function_ invoke__">draw2</span>(&amp;x);</span><br><span class="line">    <span class="title function_ invoke__">draw2</span>(&amp;y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.madaotech.top/2023/09/27/rust/trait/" data-id="cln1blid1000lkhom8xqk8fva" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/09/27/rust/closure/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Closure</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023, Madaolabs<br />
+      <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a> -->
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.loli.net/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+ 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+ 
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<script src="/js/script.js"></script>
+ 
+
+
+  </div>
+</body>
+</html>
