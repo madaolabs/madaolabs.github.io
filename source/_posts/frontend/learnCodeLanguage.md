@@ -8,16 +8,18 @@ tags:
 
 1. 数据类型
    1. number,
-   2. string, 
-   3. boolean, 
-   4. char,
+   2. string,
+   3. char,
+   4. boolean,
    5. array
-   6. map
-   7. 更多...
+   6. tuple,
+   7. set,
+   8. map
+      更多...
 2. 变量的定义
 3. 方法声明与使用
 4. 流程控制
    1. ifelse
    2. loop
+   3. match
 5. 模块和类
-
