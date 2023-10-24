@@ -82,13 +82,13 @@
       
         <!--<p>PBFT 是共识算法中的一种实现，主要应用在节点较少的情况下。联盟链中使用这样的共识算法居多。下面有图和实现代码：</p>
 <p><img src="/2023/10/23/blockchain/consensus/PBFT/pbft.png"></p>
-<h3 id="PBFT-的重点在于："><a href="#PBFT-的重点在于：" class="headerlink" title="PBFT 的重点在于："></a>PBFT 的重点在于：</h3><p>PBFT 容忍无效或者恶意节点数：f，为了保障整个系统可以正常运转，需要有 2f+1 个正常节点，系统的总节点数为：|R| &#x3D; 3f + 1。也就是说，PBFT 算法可以容忍小于 1&#x2F;3 个无效或者恶意节点。也就是说在超过 1&#x2F;3 ｜ R ｜ 个节点确认之后，就认为是没有问题的。如以下代码 <strong>131</strong> 行所展现。</p>
+<h3 id="PBFT-的重点在于："><a href="#PBFT-的重点在于：" class="headerlink" title="PBFT 的重点在于："></a>PBFT 的重点在于：</h3><p>PBFT 容忍无效或者恶意节点数：f，为了保障整个系统可以正常运转，需要有 2f+1 个正常节点，系统的总节点数为：|R| &#x3D; 3f + 1。也就是说，PBFT 算法可以容忍小于 1&#x2F;3 个无效或者恶意节点。也就是说在超过 1&#x2F;3 ｜ R ｜ 个节点确认之后，就认为是没有问题的。如以下代码 <strong>132</strong> 行所展现。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">	&quot;os&quot;</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">	&quot;net/http&quot;</span><br><span class="line">	&quot;io&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">//声明节点信息,代表各个小国家</span><br><span class="line">type nodeInfo struct &#123;</span><br><span class="line">	//标示</span><br><span class="line">	id string</span><br><span class="line">	//准备访问的方法</span><br><span class="line">	path string</span><br><span class="line">	//服务器做出的相应</span><br><span class="line">	writer http.ResponseWriter</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//存放四个国家的地址</span><br><span class="line">var nodeTable = make(map[string]string)</span><br><span class="line"></span><br><span class="line">//拜占庭在Fabric中的使用</span><br><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	//获取执行的参数</span><br><span class="line">	userId :=os.Args[1]//获取执行的第一个参数</span><br><span class="line">	fmt.Println(userId)</span><br><span class="line"></span><br><span class="line">	//./main Apple</span><br><span class="line"></span><br><span class="line">	//创建四个国家的地址</span><br><span class="line">	nodeTable = map[string]string &#123;</span><br><span class="line">		&quot;Apple&quot;:&quot;localhost:1111&quot;,</span><br><span class="line">		&quot;MS&quot;:&quot;localhost:1112&quot;,</span><br><span class="line">		&quot;Google&quot;:&quot;localhost:1113&quot;,</span><br><span class="line">		&quot;IBM&quot;:&quot;localhost:1114&quot;,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	node:=nodeInfo&#123;userId,nodeTable[userId],nil&#125;</span><br><span class="line">	fmt.Println(node)</span><br><span class="line"></span><br><span class="line">	//http协议的回调函数</span><br><span class="line">	//http://localhost:1111/req?warTime=8888</span><br><span class="line">	http.HandleFunc(&quot;/req&quot;,node.request)</span><br><span class="line">	http.HandleFunc(&quot;/prePrepare&quot;,node.prePrepare)</span><br><span class="line">	http.HandleFunc(&quot;/prepare&quot;,node.prepare)</span><br><span class="line">	http.HandleFunc(&quot;/commit&quot;,node.commit)</span><br><span class="line"></span><br><span class="line">	//启动服务器</span><br><span class="line">	if err:=http.ListenAndServe(node.path,nil);err!=nil &#123;</span><br><span class="line">		fmt.Print(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//此函数是http访问时候req命令的请求回调函数</span><br><span class="line">func (node *nodeInfo)request(writer http.ResponseWriter,request *http.Request)&#123;</span><br><span class="line">	//设置允许解析参数</span><br><span class="line">	request.ParseForm()</span><br><span class="line">	//如果有参数值，则继续处理</span><br><span class="line">	if (len(request.Form[&quot;warTime&quot;])&gt;0)&#123;</span><br><span class="line">		node.writer = writer</span><br><span class="line">		//激活主节点后，广播给其他节点,通过Ａpple向其他节点做广播</span><br><span class="line">		node.broadcast(request.Form[&quot;warTime&quot;][0],&quot;/prePrepare&quot;)</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//由主节点向其他节点做广播</span><br><span class="line">func (node *nodeInfo)broadcast(msg string ,path string )&#123;</span><br><span class="line">	//遍历所有的国家</span><br><span class="line">	for nodeId,url:=range nodeTable &#123;</span><br><span class="line"></span><br><span class="line">		if nodeId == node.id &#123;</span><br><span class="line">			continue</span><br><span class="line">		&#125;</span><br><span class="line">		//调用Get请求</span><br><span class="line">		//http.Get(&quot;http://localhost:1112/prePrepare?warTime=8888&amp;nodeId=Apple&quot;)</span><br><span class="line">		http.Get(&quot;http://&quot;+url+path+&quot;?warTime=&quot;+msg+&quot;&amp;nodeId=&quot;+node.id)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (node *nodeInfo)prePrepare(writer http.ResponseWriter,request *http.Request) &#123;</span><br><span class="line">	request.ParseForm()</span><br><span class="line">	//fmt.Println(&quot;hello world&quot;)</span><br><span class="line">	//在做分发</span><br><span class="line">	if(len(request.Form[&quot;warTime&quot;])&gt;0)&#123;</span><br><span class="line">		//分发给其他三个人</span><br><span class="line">		node.broadcast(request.Form[&quot;warTime&quot;][0],&quot;/prepare&quot;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (node *nodeInfo)prepare(writer http.ResponseWriter,request *http.Request)&#123;</span><br><span class="line"></span><br><span class="line">	request.ParseForm()</span><br><span class="line">	//调用验证</span><br><span class="line">	if len(request.Form[&quot;warTime&quot;])&gt;0&#123;</span><br><span class="line">		fmt.Println(request.Form[&quot;warTime&quot;][0])</span><br><span class="line">	&#125;</span><br><span class="line">	if len(request.Form[&quot;nodeId&quot;])&gt;0 &#123;</span><br><span class="line">		fmt.Println(request.Form[&quot;nodeId&quot;][0])</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	node.authentication(request)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var authenticationsuccess = true</span><br><span class="line">var authenticationMap = make(map[string]string)</span><br><span class="line">//获得除了本节点外的其他节点数据</span><br><span class="line">func (node *nodeInfo)authentication(request *http.Request) &#123;</span><br><span class="line"></span><br><span class="line">	//接收参数</span><br><span class="line">	request.ParseForm()</span><br><span class="line"></span><br><span class="line">	if authenticationsuccess!=false  &#123;</span><br><span class="line">		if len(request.Form[&quot;nodeId&quot;])&gt;0 &#123;</span><br><span class="line">			authenticationMap[request.Form[&quot;nodeId&quot;][0]]=&quot;ok&quot;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	if len(authenticationMap)&gt;len(nodeTable)/3 &#123;</span><br><span class="line">		//则拜占庭原理实现,通过commit反馈给浏览器</span><br><span class="line">		node.broadcast(request.Form[&quot;warTime&quot;][0],&quot;/commit&quot;)</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func (node *nodeInfo)commit(writer http.ResponseWriter,request *http.Request)&#123;</span><br><span class="line"></span><br><span class="line">	//给浏览器反馈相应</span><br><span class="line">	io.WriteString(node.writer,&quot;ok&quot;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/10/23/blockchain/consensus/PBFT/" data-id="clo3w7b5k0013kzo9hmpp2ykc" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/10/23/blockchain/consensus/PBFT/" data-id="clo3wmw2f000vk7p02onzfb5b" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -147,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/10/09/frontend/learnCodeLanguage/" data-id="clo3w7b4w0007kzo9d7yffkxp" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/10/09/frontend/learnCodeLanguage/" data-id="clo3wmw1u0007k7p05mmpeeq5" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -185,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/09/27/rust/trait/" data-id="clo3w7b5e000nkzo92cvahoyy" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/09/27/rust/trait/" data-id="clo3wmw2b000nk7p01ldb9mi5" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
@@ -234,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/09/27/rust/closure/" data-id="clo3w7b5b000ikzo9c4s3fglx" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/09/27/rust/closure/" data-id="clo3wmw28000ik7p0bqhgbooa" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
@@ -282,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/09/26/knowledgeOfComputer/secp256k1/" data-id="clo3w7b53000bkzo913ig36n8" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/09/26/knowledgeOfComputer/secp256k1/" data-id="clo3wmw22000bk7p03mxudkv1" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -319,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/09/10/book/startup/" data-id="clo3w7b4p0001kzo9ggeddeny" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/09/10/book/startup/" data-id="clo3wmw1m0001k7p0gts98ezj" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -385,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/09/06/book/theWayOfTurtle/" data-id="clo3w7b4s0002kzo920185dq9" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/09/06/book/theWayOfTurtle/" data-id="clo3wmw1p0002k7p0e7qhg570" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -426,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/" data-id="clo3w7b4t0003kzo9eqncfkmu" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/" data-id="clo3wmw1q0003k7p0h6jf6shr" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -516,7 +516,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/" data-id="clo3w7b4v0005kzo986dm6ygf" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/" data-id="clo3wmw1s0005k7p04xjxfqsk" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -567,7 +567,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/08/09/devops/ipv6/" data-id="clo3w7b4u0004kzo93aj02ijx" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/08/09/devops/ipv6/" data-id="clo3wmw1r0004k7p0dmsac1e3" class="article-share-link">Share</a>-->
       
       
     </footer>
