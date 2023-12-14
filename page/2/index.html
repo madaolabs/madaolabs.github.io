@@ -58,6 +58,137 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-designMode/cleanArchitecture" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/08/21/designMode/cleanArchitecture/">简洁架构</a>
+    </h1>
+  
+
+        <a href="/2023/08/21/designMode/cleanArchitecture/" class="article-date">
+  <time datetime="2023-08-21T10:40:27.000Z" itemprop="datePublished">2023-08-21</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>最近把移动版钱包的架构已经全部应用简洁架构。整体感受这套架构非常适合<strong>重前端</strong>的应用。</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">├src</span><br><span class="line">| ├─_api</span><br><span class="line">| ├─_app</span><br><span class="line">| ├─_domain</span><br><span class="line">| ├─_lib</span><br><span class="line">| ├─_services</span><br><span class="line">| ├─_test</span><br><span class="line">| ├─_ui</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>_ui</strong>: 所有的页面，组件，资源 都会在这个目录下。这里负责页面的渲染以及调用_api 层。<br><strong>_api</strong>: UI 层去调用这一层，相当于简洁架构的 adapter，负责逻辑的<strong>组装</strong>。<br><strong>_app</strong>: api 层去调用这一层，这里所有的方法要求是纯函数，要求必须走单元测试。负责真正的逻辑处理。<br><strong>_domain</strong>: 核心层，主要定义数据结构和各个数据结构之间的转换。<br><strong>_test</strong>: _domain 和 _app 的单元测试。<br><strong>_services</strong>: 依赖的外部服务，比如网络请求，合约，浏览器 API 等。<br><strong>_lib</strong>: 一些公共的配置，公共常量等信息</p>
+<h3 id="简洁架构图"><a href="#简洁架构图" class="headerlink" title="简洁架构图"></a>简洁架构图</h3><p><img src="/2023/08/21/designMode/cleanArchitecture/cleanarchitecture.png"></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://blog.madaotech.top/2023/08/21/designMode/cleanArchitecture/" data-id="clq51dqg10003slqbgbhpbhse" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-frontend/browserExtension" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/08/10/frontend/browserExtension/">浏览器插件</a>
+    </h1>
+  
+
+        <a href="/2023/08/10/frontend/browserExtension/" class="article-date">
+  <time datetime="2023-08-10T23:08:23.000Z" itemprop="datePublished">2023-08-10</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>浏览器插件学习体系大致分为两个部分：</p>
+<ol>
+<li>manifest.json 中字段含义</li>
+<li>各部分之间的通信</li>
+</ol>
+<h4 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h4><p>相关文档：<a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/manifest/">https://developer.chrome.com/docs/extensions/mv3/manifest/</a><br>主要组成部分:</p>
+<ol>
+<li>background(service_worker)</li>
+<li>action</li>
+<li>options_ui</li>
+<li>content_scripts</li>
+<li><strong>特别提到 injected_script 不在 manifest 配置中, 但是可以通过 content_scripts 给页面插入 injected_script</strong></li>
+</ol>
+<p><img src="/2023/08/10/frontend/browserExtension/manifest.webp"></p>
+<h4 id="各部分之间的通信"><a href="#各部分之间的通信" class="headerlink" title="各部分之间的通信"></a>各部分之间的通信</h4><p>相关文档: <a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/messaging/">https://developer.chrome.com/docs/extensions/mv3/messaging/</a></p>
+<ol>
+<li>content 和 background 之间的通信</li>
+<li>popup 和 content 之间的通信</li>
+<li>popup 和 background 之间的通信</li>
+</ol>
+<p>content 和 background 之间的通信实例代码：</p>
+<ul>
+<li><p>短连接:<br>&nbsp;content_scripts 发送信息给 background:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> chrome.<span class="property">runtime</span>.<span class="title function_">sendMessage</span>(&#123; <span class="attr">greeting</span>: <span class="string">&quot;hello&quot;</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;content_scripts 接收信息:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">chrome.<span class="property">runtime</span>.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span> (<span class="params"></span></span><br><span class="line"><span class="params">  request,</span></span><br><span class="line"><span class="params">  sender,</span></span><br><span class="line"><span class="params">  sendResponse</span></span><br><span class="line"><span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(</span><br><span class="line">    sender.<span class="property">tab</span></span><br><span class="line">      ? <span class="string">&quot;from a content script:&quot;</span> + sender.<span class="property">tab</span>.<span class="property">url</span></span><br><span class="line">      : <span class="string">&quot;from the extension&quot;</span></span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">if</span> (request.<span class="property">greeting</span> === <span class="string">&quot;hello&quot;</span>) <span class="title function_">sendResponse</span>(&#123; <span class="attr">farewell</span>: <span class="string">&quot;goodbye&quot;</span> &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;background 发送信息给 content_scripts:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> chrome.<span class="property">tabs</span>.<span class="title function_">sendMessage</span>(tab.<span class="property">id</span>, &#123; <span class="attr">greeting</span>: <span class="string">&quot;hello&quot;</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;background 接收信息:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">chrome.<span class="property">runtime</span>.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span> (<span class="params"></span></span><br><span class="line"><span class="params">  request,</span></span><br><span class="line"><span class="params">  sender,</span></span><br><span class="line"><span class="params">  sendResponse</span></span><br><span class="line"><span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(</span><br><span class="line">    sender.<span class="property">tab</span></span><br><span class="line">      ? <span class="string">&quot;from a content script:&quot;</span> + sender.<span class="property">tab</span>.<span class="property">url</span></span><br><span class="line">      : <span class="string">&quot;from the extension&quot;</span></span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">if</span> (request.<span class="property">greeting</span> === <span class="string">&quot;hello&quot;</span>) <span class="title function_">sendResponse</span>(&#123; <span class="attr">farewell</span>: <span class="string">&quot;goodbye&quot;</span> &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>长连接:<br>&nbsp;content_scripts 发起连接，发送消息，监听消息:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> port = chrome.<span class="property">runtime</span>.<span class="title function_">connect</span>(&#123; <span class="attr">name</span>: <span class="string">&quot;content-scripts&quot;</span> &#125;);</span><br><span class="line">port.<span class="title function_">postMessage</span>(&#123; <span class="attr">joke</span>: <span class="string">&quot;Knock knock&quot;</span> &#125;);</span><br><span class="line">port.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span> (<span class="params">msg</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (msg.<span class="property">question</span> === <span class="string">&quot;Who&#x27;s there?&quot;</span>) port.<span class="title function_">postMessage</span>(&#123; <span class="attr">answer</span>: <span class="string">&quot;Madame&quot;</span> &#125;);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (msg.<span class="property">question</span> === <span class="string">&quot;Madame who?&quot;</span>)</span><br><span class="line">    port.<span class="title function_">postMessage</span>(&#123; <span class="attr">answer</span>: <span class="string">&quot;Madame... Bovary&quot;</span> &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;background 监听链接，监听消息，发送消息:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">chrome.<span class="property">runtime</span>.<span class="property">onConnect</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span> (<span class="params">port</span>) &#123;</span><br><span class="line">  port.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span> (<span class="params">msg</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (msg.<span class="property">joke</span> === <span class="string">&quot;Knock knock&quot;</span>)</span><br><span class="line">      port.<span class="title function_">postMessage</span>(&#123; <span class="attr">question</span>: <span class="string">&quot;Who&#x27;s there?&quot;</span> &#125;);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (msg.<span class="property">answer</span> === <span class="string">&quot;Madame&quot;</span>)</span><br><span class="line">      port.<span class="title function_">postMessage</span>(&#123; <span class="attr">question</span>: <span class="string">&quot;Madame who?&quot;</span> &#125;);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (msg.<span class="property">answer</span> === <span class="string">&quot;Madame... Bovary&quot;</span>)</span><br><span class="line">      port.<span class="title function_">postMessage</span>(&#123; <span class="attr">question</span>: <span class="string">&quot;I don&#x27;t get it.&quot;</span> &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>popup 和 content 之间的通信实例代码</p>
+<ul>
+<li><p>短连接, 和content与background的短链接一下</p>
+</li>
+<li><p>长连接, popup 或者 content 任意一方都可以发起。</p>
+<p>&nbsp;popup发起连接:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [tab] = <span class="keyword">await</span> chrome.<span class="property">tabs</span>.<span class="title function_">query</span>(&#123;<span class="attr">active</span>: <span class="literal">true</span>, <span class="attr">lastFocusedWindow</span>: <span class="literal">true</span>&#125;);</span><br><span class="line"><span class="keyword">const</span> port = chrome.<span class="property">tabs</span>.<span class="title function_">connect</span>(tab.<span class="property">id</span>, &#123; <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span> &#125;)</span><br><span class="line">port.<span class="title function_">postMessage</span>(&#123; <span class="attr">joke</span>: <span class="string">&quot;Knock knock&quot;</span> &#125;);</span><br><span class="line">port.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span> (<span class="params">msg</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (msg.<span class="property">question</span> === <span class="string">&quot;Who&#x27;s there?&quot;</span>) port.<span class="title function_">postMessage</span>(&#123; <span class="attr">answer</span>: <span class="string">&quot;Madame&quot;</span> &#125;);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (msg.<span class="property">question</span> === <span class="string">&quot;Madame who?&quot;</span>)</span><br><span class="line">    port.<span class="title function_">postMessage</span>(&#123; <span class="attr">answer</span>: <span class="string">&quot;Madame... Bovary&quot;</span> &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>&nbsp;content发起连接:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> port = chrome.<span class="property">runtime</span>.<span class="title function_">connect</span>(&#123; <span class="attr">name</span>: <span class="string">&quot;content-scripts&quot;</span> &#125;);</span><br><span class="line">port.<span class="title function_">postMessage</span>(&#123; <span class="attr">joke</span>: <span class="string">&quot;Knock knock&quot;</span> &#125;);</span><br><span class="line">port.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span> (<span class="params">msg</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (msg.<span class="property">question</span> === <span class="string">&quot;Who&#x27;s there?&quot;</span>) port.<span class="title function_">postMessage</span>(&#123; <span class="attr">answer</span>: <span class="string">&quot;Madame&quot;</span> &#125;);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (msg.<span class="property">question</span> === <span class="string">&quot;Madame who?&quot;</span>)</span><br><span class="line">    port.<span class="title function_">postMessage</span>(&#123; <span class="attr">answer</span>: <span class="string">&quot;Madame... Bovary&quot;</span> &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;popup和content监听链接:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">chrome.<span class="property">runtime</span>.<span class="property">onConnect</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span> (<span class="params">port</span>) &#123;</span><br><span class="line">  port.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span> (<span class="params">msg</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (msg.<span class="property">joke</span> === <span class="string">&quot;Knock knock&quot;</span>)</span><br><span class="line">      port.<span class="title function_">postMessage</span>(&#123; <span class="attr">question</span>: <span class="string">&quot;Who&#x27;s there?&quot;</span> &#125;);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (msg.<span class="property">answer</span> === <span class="string">&quot;Madame&quot;</span>)</span><br><span class="line">      port.<span class="title function_">postMessage</span>(&#123; <span class="attr">question</span>: <span class="string">&quot;Madame who?&quot;</span> &#125;);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (msg.<span class="property">answer</span> === <span class="string">&quot;Madame... Bovary&quot;</span>)</span><br><span class="line">      port.<span class="title function_">postMessage</span>(&#123; <span class="attr">question</span>: <span class="string">&quot;I don&#x27;t get it.&quot;</span> &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>各部分的通信其实就是各部分中对调用 chrome.runtime, chrome.tabs 的方法，实现监听消息与发送消息。原理上和各部分无关，形式上是一个发布订阅模型。</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="https://blog.madaotech.top/2023/08/10/frontend/browserExtension/" data-id="clq51dqg30005slqbgaly9mbs" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-devops/ipv6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -99,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/08/09/devops/ipv6/" data-id="clo3xniq90004krp1h8ucfdzg" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/08/09/devops/ipv6/" data-id="clq51dqg20004slqb81z0c7ov" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -141,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/27/knowledgeOfComputer/bytesAndChar/" data-id="clo3xniqj000akrp12zti14nz" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/27/knowledgeOfComputer/bytesAndChar/" data-id="clq51dqga000aslqbazbk8bjb" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">计算机基础知识</a></li></ul>
@@ -180,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/14/cryptography/" data-id="clo3xnipw0000krp1e0zgf05i" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/14/cryptography/" data-id="clq51dqfv0000slqbdhlqhfl5" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -218,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/13/frontend/packageJson/" data-id="clo3xniqi0009krp15mvi8nde" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/13/frontend/packageJson/" data-id="clq51dqg90009slqb3aay3gji" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
@@ -261,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/11/solana/accounts/" data-id="clo3xnir2000skrp168cp5kxr" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/11/solana/accounts/" data-id="clq51dqgj000vslqb4l5k2hpg" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solana/" rel="tag">solana</a></li></ul>
@@ -580,7 +711,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/11/frontend/interview/" data-id="clo3xniqc0006krp18ozz3dy2" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/11/frontend/interview/" data-id="clq51dqg30006slqbcqm2bhbj" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
@@ -619,7 +750,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/07/01/solana/PDA/" data-id="clo3xnir0000qkrp101ysfzfb" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/07/01/solana/PDA/" data-id="clq51dqgh000qslqbah8w2b0r" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solana/" rel="tag">solana</a></li></ul>
@@ -658,107 +789,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/29/rust/macro/" data-id="clo3xniqx000lkrp1ekrw1wbd" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-rust/FFI" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/26/rust/FFI/">FFI</a>
-    </h1>
-  
-
-        <a href="/2023/06/26/rust/FFI/" class="article-date">
-  <time datetime="2023-06-26T15:03:25.000Z" itemprop="datePublished">2023-06-26</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p><a target="_blank" rel="noopener" href="https://rustcc.cn/article?id=3b8241d0-c4ca-4f49-8e07-0a5142b00f59">https://rustcc.cn/article?id=3b8241d0-c4ca-4f49-8e07-0a5142b00f59</a></p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/FFI/" data-id="clo3xniqs000ekrp13sgf9r05" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-rust/lib" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/26/rust/lib/">lib</a>
-    </h1>
-  
-
-        <a href="/2023/06/26/rust/lib/" class="article-date">
-  <time datetime="2023-06-26T14:40:19.000Z" itemprop="datePublished">2023-06-26</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p>先看看 rust 支持哪些 crate-type</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc --help|grep crate-type</span><br></pre></td></tr></table></figure>
-
-<p>输出为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--crate-type [bin|lib|rlib|dylib|cdylib|staticlib|proc-macro]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>bin<br>bin 代表二进制可执行文件，不需要特别声明，Cargo.toml 不声明 [lib], 打包出来就是可执行二进制文件</p>
-</li>
-<li><p>lib<br>不是具体的库代表，默认使用的 rlib</p>
-</li>
-<li><p>rlib<br>rlib 是 Rust Library 特定静态中间库格式。如果只是纯 Rust 代码项目之间的依赖和调用，那么，用 rlib 就能完全满足使用需求。</p>
-</li>
-<li><p>staticlib<br>编译为静态库 会生成 .a 文件（在 Linux 和 MacOS 上），或 .lib 文件（在 Windows 上）。</p>
-</li>
-<li><p>proc-macro<br>这种 crate 里面只能导出过程宏，被导出的过程宏可以被其它 crate 引用。</p>
-</li>
-<li><p>dylib<br>会在编译的时候，生成动态库（Linux 上为 .so, MacOS 上为 .dylib, Windows 上为 .dll）。</p>
-<p>动态库是平台相关的库。动态库在被依赖并链接时，不会被链接到目标文件中。这种动态库只能被 Rust 写的程序(或遵循 Rust 内部不稳定的规范的程序)调用。这个动态库可能依赖于其它动态库（比如，Linux 下用 C 语言写的 PostgreSQL 的 libpq.so，或者另一个编译成 “dylib” 的 Rust 动态库）。</p>
-</li>
-<li><p>cdylib<br>与 dylib 类似，也会生成 .so, .dylib 或 .dll 文件。但是这种动态库可以被其它语言调用（因为几乎所有语言都有遵循 C 规范的 FFI 实现），也就是跨语言 FFI 使用。这个动态库可能依赖于其它动态库（比如，Linux 下用 C 语言写的 PostgreSQL 的 libpq.so）。</p>
-</li>
-</ul>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/06/26/rust/lib/" data-id="clo3xniqw000jkrp12wrl010c" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/06/29/rust/macro/" data-id="clq51dqgg000lslqb4zaycxdy" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
