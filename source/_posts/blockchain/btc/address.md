@@ -102,13 +102,14 @@ OP_HASH160 54c557e07dde5bb6cb791c7a540e0a4796f5e97e OP_EQUAL
 
 #### **bc1q（Segwit 隔离见证地址）**
 
+正式交易如： [ec9f...d959](https://www.blockchain.com/explorer/transactions/btc/ec9f03d79de1b408a2880e77b7be67c149ddb5e89c5b8c5a648fe29f4524d959)
 无论是 P2PKH，还是 P2SH，都会把脚本写在交易中，**Segwit** 把 **解锁脚本** 从交易中剔除，那么区块中可以容纳更多的交易。“见证”是密码学中的名词，含义是解锁方案，在我们这里叫做解锁脚本。这部分数据占据原交易的约 75%。矿工在验证输入后可以删除 witness
 
 在 Segwit 升级后，P2PKH 和 P2SH 变为了 P2WPKH 和 P2WSH。在收款方的地址是 bc1q 的情况下。
 
 P2WPKH 的具体的技术实现：
 
-1. 上一笔交易的输出变为：见证版本号 + 公钥哈希值(或者 reedom script 的 hash)
+1. 上一笔交易的输出变为：见证版本号为 0 + 公钥哈希值(或者 reedom script 的 hash)
 
 ```shell
 // P2PKH 的样子
@@ -143,6 +144,7 @@ OP_DUP OP_HASH160 ab68025513c3dbd2f7b92a94e0581f5d50f654e7 OP_EQUALVERIFY OP_CHE
 
 #### **bc1p...（Taproot 地址）**
 
+真实交易: [3ef65...2e29](https://www.blockchain.com/explorer/transactions/btc/3ef659aff282acc1f677b7c003a6edd07b810d85eaf3cb81210bd11ea3142e29)
 Taproot 在 Segwit 的基础上进一步减小了存储空间，提高了交易效率，并提供了更好的隐私性, Taproot 升级包含 3 个升级:
 
 1. 默克尔抽象语法树(MASK)
@@ -179,3 +181,5 @@ Taproot 在 Segwit 的基础上进一步减小了存储空间，提高了交易�
 沿用 Maxwell 原文中的例子：假设两个用户各有公钥 A、B，两人聚合公钥 A + B = C，再生成最终公钥 P = C + H(C||S)\*G，其中 S 为自定义的脚本。就以这个最终公钥 P 来定义资金的解锁条件。假设两个用户都在线，他们很容易可以共同使用这笔资金，只要其中一方在签名时在自己的私钥里加上 H(C||S) 即可；如果只有其中一方在线，比如 S 定义了 B 可以花费资金的条件，Taproot 的规则使得公钥 B 用户可通过揭示聚合公钥 P 以及 H(C||S) 并提供可以满足 S 的条件来使用资金。
 
 总而言之，在 Taproot 之后，他人将无法从地址形式上分辨一个 P2TR 地址到底是个人用户还是合约用户；由于 Schnorr 签名的效果，当这个地址里的资金使用单签名来解锁时，他人将无法分辨这到底是一个人在使用，还是 n 个人一起使用，也无法知道这个地址是否还有自定义的脚本；由于 MAST 的效果，当用户使用自定义的脚本来花费资金时，只需暴露需要用到的部分脚本；他人虽然知道了这个地址有自定义的脚本，但整个脚本到底包括哪些条件，仍然是不可知的。
+
+具体技术实现与 segwit 相似，见证版本号改为 1
