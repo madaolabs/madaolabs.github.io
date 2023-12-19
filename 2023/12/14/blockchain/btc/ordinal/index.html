@@ -4,21 +4,21 @@
     <meta charset="utf-8" />
     
  
-    <title>Ordinal 协议 | Madaolabs</title>
+    <title>Ordinals 协议 和 BRC-20 | Madaolabs</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
-    <meta name="description" content="下文需要对 BTC 的交易模型有所了解，不知道的同学请先看: 《解读 BTC 的地址类型以及交易模型》 Ordinal 协议是什么？Ordinal 协议是一段固定格式的文本。该文本叫做成为铭文（Inscriptions）并且数据存储在比特币 taproot script-path 花费脚本中。 铸造过程铸造的流程是一个固定的步骤分为两步(本质上是两笔交易):  提交(commit) 揭露(reve">
+    <meta name="description" content="下文需要对 BTC 的交易模型有所了解，不知道的同学请先看: 《解读 BTC 的地址类型以及交易模型》 Ordinals 协议是什么？Ordinals 做了两个事情：  给每一个 satoshi 一个序号 将一段固定格式的文本结合序号。该文本叫做成为铭文（Inscriptions）并且数据存储在比特币 taproot script-path 花费脚本中。  Ordinals Theory：Ordi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ordinal 协议">
+<meta property="og:title" content="Ordinals 协议 和 BRC-20">
 <meta property="og:url" content="https://blog.madaotech.top/2023/12/14/blockchain/btc/ordinal/index.html">
 <meta property="og:site_name" content="Madaolabs">
-<meta property="og:description" content="下文需要对 BTC 的交易模型有所了解，不知道的同学请先看: 《解读 BTC 的地址类型以及交易模型》 Ordinal 协议是什么？Ordinal 协议是一段固定格式的文本。该文本叫做成为铭文（Inscriptions）并且数据存储在比特币 taproot script-path 花费脚本中。 铸造过程铸造的流程是一个固定的步骤分为两步(本质上是两笔交易):  提交(commit) 揭露(reve">
+<meta property="og:description" content="下文需要对 BTC 的交易模型有所了解，不知道的同学请先看: 《解读 BTC 的地址类型以及交易模型》 Ordinals 协议是什么？Ordinals 做了两个事情：  给每一个 satoshi 一个序号 将一段固定格式的文本结合序号。该文本叫做成为铭文（Inscriptions）并且数据存储在比特币 taproot script-path 花费脚本中。  Ordinals Theory：Ordi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-14T15:25:59.000Z">
-<meta property="article:modified_time" content="2023-12-19T07:54:26.164Z">
-<meta property="article:tag" content="BTC">
+<meta property="article:modified_time" content="2023-12-19T08:15:33.199Z">
+<meta property="article:tag" content="BTC, Ordinal">
 <meta name="twitter:card" content="summary">  
     <link rel="icon" href="/favicon.ico" />
      
@@ -72,7 +72,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Ordinal 协议
+      Ordinals 协议 和 BRC-20
     </h1>
   
 
@@ -81,7 +81,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>下文需要对 BTC 的交易模型有所了解，不知道的同学请先看: <a target="_blank" rel="noopener" href="https://madaolabs.github.io/2023/12/14/blockchain/btc/address/">《解读 BTC 的地址类型以及交易模型》</a></p>
-<h4 id="Ordinal-协议是什么？"><a href="#Ordinal-协议是什么？" class="headerlink" title="Ordinal 协议是什么？"></a>Ordinal 协议是什么？</h4><p>Ordinal 协议是一段固定格式的文本。该文本叫做成为铭文（Inscriptions）并且数据存储在比特币 taproot script-path 花费脚本中。</p>
+<h4 id="Ordinals-协议是什么？"><a href="#Ordinals-协议是什么？" class="headerlink" title="Ordinals 协议是什么？"></a>Ordinals 协议是什么？</h4><p>Ordinals 做了两个事情：</p>
+<ol>
+<li>给每一个 satoshi 一个序号</li>
+<li>将一段固定格式的文本结合<strong>序号</strong>。该文本叫做成为铭文（Inscriptions）并且数据存储在比特币 taproot script-path 花费脚本中。</li>
+</ol>
+<p>Ordinals Theory：Ordinals + Inscriptions &#x3D; Digital Artefacts。</p>
 <h4 id="铸造过程"><a href="#铸造过程" class="headerlink" title="铸造过程"></a>铸造过程</h4><p>铸造的流程是一个固定的步骤分为两步(本质上是<strong>两笔交易</strong>):</p>
 <ol>
 <li>提交(commit)</li>
@@ -89,6 +94,21 @@
 </ol>
 <p><strong>提交</strong>的交易必须由 bc1p 的地址发起，输出脚本(锁定脚本)是 Taproot 的脚本: 见证版本号 1 + MASK root 的公钥，得益于 Taproot 升级此时只能在脸上看到这笔交易，但无法看到交易的内容</p>
 <p><strong>揭露</strong>的交易是消费上一笔交易的输出，在此交易中的输入包含了铭文数据，达到揭露的目的。</p>
+<h4 id="Ordinal-的脚本格式"><a href="#Ordinal-的脚本格式" class="headerlink" title="Ordinal 的脚本格式"></a>Ordinal 的脚本格式</h4><p>OP_FALSE OP_IF … OP_ENDIF。 从 OP_IF 与 OP_ENDIF 之间的内容可以是任意内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">OP_FALSE</span><br><span class="line">OP_IF</span><br><span class="line">  OP_PUSH &quot;ord&quot;</span><br><span class="line">  OP_PUSH 1</span><br><span class="line">  OP_PUSH &quot;text/plain;charset=utf-8&quot;</span><br><span class="line">  OP_PUSH 0</span><br><span class="line">  OP_PUSH &quot;Hello, world!&quot;</span><br><span class="line">OP_ENDIF</span><br></pre></td></tr></table></figure>
+
+<h4 id="Ordinals-的价值"><a href="#Ordinals-的价值" class="headerlink" title="Ordinals 的价值"></a>Ordinals 的价值</h4><p>Ordinals 的价值在于 satoshi 的稀有度，分为 6 种稀有：</p>
+<ol>
+<li>common: 不是区块第一个 sat 的任何 sat</li>
+<li>uncommon: 每个区块的第一个 sat</li>
+<li>rare: 每个难度调整期（每 2016 个区块调整 1 次）的第一个 sat</li>
+<li>epic: 每个减半周期（大约每四年）的第一个 sat</li>
+<li>legendary：每个周期（减半和难度调整同时发生）的第一个 sat</li>
+<li>mythic: 创世块的第一个 sat</li>
+</ol>
+<h4 id="BRC-20"><a href="#BRC-20" class="headerlink" title="BRC-20"></a>BRC-20</h4><p>是一段 json 格式的固定文本, 目前仅有部署、铸造和转帐三种功能</p>
+<h4 id="BRC-20-脚本案例"><a href="#BRC-20-脚本案例" class="headerlink" title="BRC-20 脚本案例"></a>BRC-20 脚本案例</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">OP_FALSE</span><br><span class="line">OP_IF</span><br><span class="line">  OP_PUSH &quot;ord&quot;</span><br><span class="line">  OP_PUSH 1</span><br><span class="line">  OP_PUSH &quot;text/plain;charset=utf-8&quot;</span><br><span class="line">  OP_PUSH 0</span><br><span class="line">  OP_PUSH &quot;&#123;p: &quot;brc-20&quot;, op: &quot;deploy&quot;, tick: &quot;ordi&quot;, max: &quot;21000000&quot;, lim: &quot;1000&quot;&#125;&quot;</span><br><span class="line">OP_ENDIF</span><br></pre></td></tr></table></figure>
+
 <h4 id="真实案例"><a href="#真实案例" class="headerlink" title="真实案例"></a>真实案例</h4><ol>
 <li>提交：<a target="_blank" rel="noopener" href="https://www.blockchain.com/explorer/transactions/btc/43eed3dac6f11b4b8f1d5d85b15dbbbe76ed8240f3053d9c44123289ac720e5e">43eed…20e5e</a></li>
 <li>接着提交揭露: <a target="_blank" rel="noopener" href="https://www.blockchain.com/explorer/transactions/btc/2911040743b16b71c4c00dc2561b91dac87650e0957d8acd016da0ffd8d3d511">29110…3d511</a></li>
@@ -97,10 +117,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.madaotech.top/2023/12/14/blockchain/btc/ordinal/" data-id="clqc1u8my000xm0oze5ekhjlz" class="article-share-link">Share</a>
+      <a data-url="https://blog.madaotech.top/2023/12/14/blockchain/btc/ordinal/" data-id="clqc2lecp000xmiq75cq3hjss" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BTC/" rel="tag">BTC</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BTC-Ordinal/" rel="tag">BTC, Ordinal</a></li></ul>
 
     </footer>
   </div>
