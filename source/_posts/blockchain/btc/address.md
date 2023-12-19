@@ -1,7 +1,7 @@
 ---
 title: 解读 BTC 的地址类型以及交易模型
 date: 2023-12-14 16:42:09
-tags:
+tags: btc,bitcoin
 ---
 
 BTC 的交易是基于 UTXO 系统，本文不介绍 UTXO，不知道的同学自行查阅学习。
