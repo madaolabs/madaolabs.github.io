@@ -69,7 +69,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/12/14/blockchain/btc/address/">解读 BTC 的地址类型</a>
+      <a class="article-title" href="/2023/12/14/blockchain/btc/address/">解读 BTC 的地址类型以及交易模型</a>
     </h1>
   
 
@@ -157,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/12/14/blockchain/btc/address/" data-id="clqbz6vc6000to7p07snw2o3g" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/12/14/blockchain/btc/address/" data-id="clqc1u8mx000vm0ozebw59zvn" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -189,11 +189,24 @@
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!---->
+        <!--<p>下文需要对 BTC 的交易模型有所了解，不知道的同学请先看: <a target="_blank" rel="noopener" href="https://madaolabs.github.io/2023/12/14/blockchain/btc/address/">《解读 BTC 的地址类型以及交易模型》</a></p>
+<h4 id="Ordinal-协议是什么？"><a href="#Ordinal-协议是什么？" class="headerlink" title="Ordinal 协议是什么？"></a>Ordinal 协议是什么？</h4><p>Ordinal 协议是一段固定格式的文本。该文本叫做成为铭文（Inscriptions）并且数据存储在比特币 taproot script-path 花费脚本中。</p>
+<h4 id="铸造过程"><a href="#铸造过程" class="headerlink" title="铸造过程"></a>铸造过程</h4><p>铸造的流程是一个固定的步骤分为两步(本质上是<strong>两笔交易</strong>):</p>
+<ol>
+<li>提交(commit)</li>
+<li>揭露(reveal)</li>
+</ol>
+<p><strong>提交</strong>的交易必须由 bc1p 的地址发起，输出脚本(锁定脚本)是 Taproot 的脚本: 见证版本号 1 + MASK root 的公钥，得益于 Taproot 升级此时只能在脸上看到这笔交易，但无法看到交易的内容</p>
+<p><strong>揭露</strong>的交易是消费上一笔交易的输出，在此交易中的输入包含了铭文数据，达到揭露的目的。</p>
+<h4 id="真实案例"><a href="#真实案例" class="headerlink" title="真实案例"></a>真实案例</h4><ol>
+<li>提交：<a target="_blank" rel="noopener" href="https://www.blockchain.com/explorer/transactions/btc/43eed3dac6f11b4b8f1d5d85b15dbbbe76ed8240f3053d9c44123289ac720e5e">43eed…20e5e</a></li>
+<li>接着提交揭露: <a target="_blank" rel="noopener" href="https://www.blockchain.com/explorer/transactions/btc/2911040743b16b71c4c00dc2561b91dac87650e0957d8acd016da0ffd8d3d511">29110…3d511</a></li>
+</ol>
+-->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/12/14/blockchain/btc/ordinal/" data-id="clqbz6vc7000vo7p04oq491ow" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/12/14/blockchain/btc/ordinal/" data-id="clqc1u8my000xm0oze5ekhjlz" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BTC/" rel="tag">BTC</a></li></ul>
@@ -233,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/10/24/blockchain/consensus/POS/" data-id="clqbz6vc9000zo7p00f3aheb2" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/10/24/blockchain/consensus/POS/" data-id="clqc1u8n90018m0oz1we59fpf" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -273,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/10/23/blockchain/consensus/PBFT/" data-id="clqbz6vc8000xo7p0165e6afs" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/10/23/blockchain/consensus/PBFT/" data-id="clqc1u8mz000zm0oz89y95jhh" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -332,7 +345,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/10/09/frontend/learnCodeLanguage/" data-id="clqbz6vbq0006o7p02fkg7v8b" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/10/09/frontend/learnCodeLanguage/" data-id="clqc1u8mj0007m0oz8qigbdqc" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -370,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/09/27/rust/trait/" data-id="clqbz6vc4000mo7p05y5y3sfk" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/09/27/rust/trait/" data-id="clqc1u8mv000nm0oz8gxb5zbp" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
@@ -419,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/09/27/rust/closure/" data-id="clqbz6vc2000go7p0ca6bdtff" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/09/27/rust/closure/" data-id="clqc1u8ms000fm0oz3a647k79" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rust/" rel="tag">rust</a></li></ul>
@@ -467,7 +480,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/09/26/knowledgeOfComputer/secp256k1/" data-id="clqbz6vbx000bo7p087lo6mv3" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/09/26/knowledgeOfComputer/secp256k1/" data-id="clqc1u8mp000bm0ozb4epe3xa" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -504,7 +517,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/09/10/book/startup/" data-id="clqbz6vbk0001o7p031cshpeu" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/09/10/book/startup/" data-id="clqc1u8mc0001m0ozavmb1jm9" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -570,7 +583,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://blog.madaotech.top/2023/09/06/book/theWayOfTurtle/" data-id="clqbz6vbm0002o7p0f3tm8wtj" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://blog.madaotech.top/2023/09/06/book/theWayOfTurtle/" data-id="clqc1u8me0002m0oz2z080lci" class="article-share-link">Share</a>-->
       
       
     </footer>
