@@ -2,7 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <!--  -->
+    
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    (i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date());
+    (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "//www.google-analytics.com/analytics.js",
+    "ga"
+  );
+
+  ga("create", "G-6ZP9QPH0GE", "auto");
+  ga("send", "pageview");
+</script>
+<!-- End Google Analytics -->
+
  
     <title>interview | Madaolabs</title>
     <meta
@@ -17,7 +44,7 @@
 <meta property="og:description" content="知识点考察1. redux-thunk 和 redux-saga 的区别redux-thunk 处理 side effect 的方式是：dispatch 一个对象时不做处理；dispatch 一个函数，在函数中处理异步动作，然后再 dispatch 一个对象 redux-saga 处理 side effect 的方式是：自行建立了一套事件监听机制，接管所有的 action。effects 方法有">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-11T08:23:30.000Z">
-<meta property="article:modified_time" content="2024-02-26T11:26:48.302Z">
+<meta property="article:modified_time" content="2024-02-26T11:31:26.653Z">
 <meta property="article:tag" content="frontend">
 <meta name="twitter:card" content="summary">  
     <link rel="icon" href="/favicon.ico" />
@@ -365,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.madaotech.top/2023/07/11/frontend/interview/" data-id="clt2ut39k0006k9oub69b02x4" class="article-share-link">Share</a>
+      <a data-url="https://blog.madaotech.top/2023/07/11/frontend/interview/" data-id="clt2uz2gu0006j6ou0hof1j9b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
