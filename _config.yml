@@ -109,4 +109,5 @@ deploy:
   type: ""
 
 # Google Analytics
-google_analytics: G-6ZP9QPH0GE
+google_analytics:
+  tracking_id: G-6ZP9QPH0GE
