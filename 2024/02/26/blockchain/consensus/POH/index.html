@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+ 
+    <title>POH Consensus | Madaolabs</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="description" content="简介Solana 链上的共识机制是 DPoS（委托权益证明） 和 PoH（历史证明），其中 PoH 是 Solana 高 TPS 的核心原因，理论峰值 TPS 为 65,000。下面我们详细说说 PoH 是如何做的。 传统共识机制(Pow 和 PoS)传统共识机制中的每一个节点都有自己的内部时钟，它按照本地系统时钟执行。当交易发生时，节点根据本地时钟为交易新增时间戳。所有的节点需要相互沟通，协调彼">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POH Consensus">
+<meta property="og:url" content="https://blog.madaotech.top/2024/02/26/blockchain/consensus/POH/index.html">
+<meta property="og:site_name" content="Madaolabs">
+<meta property="og:description" content="简介Solana 链上的共识机制是 DPoS（委托权益证明） 和 PoH（历史证明），其中 PoH 是 Solana 高 TPS 的核心原因，理论峰值 TPS 为 65,000。下面我们详细说说 PoH 是如何做的。 传统共识机制(Pow 和 PoS)传统共识机制中的每一个节点都有自己的内部时钟，它按照本地系统时钟执行。当交易发生时，节点根据本地时钟为交易新增时间戳。所有的节点需要相互沟通，协调彼">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-26T14:03:55.000Z">
+<meta property="article:modified_time" content="2024-02-26T07:49:48.480Z">
+<meta name="twitter:card" content="summary">  
+    <link rel="icon" href="/favicon.ico" />
+     
+    <link
+      href="//fonts.loli.net/css?family=Source+Code+Pro"
+      rel="stylesheet"
+      type="text/css"
+    />
+    
+    <link
+      href="https://fonts.loli.net/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean"
+      rel="stylesheet"
+    />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  <meta name="generator" content="Hexo 6.3.0"></head>
+</html>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"> </a>
+        <a href="/" id="main-nav-title" class="main-nav-link">
+          Madaolabs</a
+        >
+        
+        <a class="main-nav-link" href="/archives/"
+          >Archives</a
+        >
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-blockchain/consensus/POH" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      POH Consensus
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Solana 链上的共识机制是 DPoS（委托权益证明） 和 PoH（历史证明），其中 PoH 是 Solana 高 TPS 的核心原因，理论峰值 TPS 为 65,000。下面我们详细说说 PoH 是如何做的。</p>
+<h3 id="传统共识机制-Pow-和-PoS"><a href="#传统共识机制-Pow-和-PoS" class="headerlink" title="传统共识机制(Pow 和 PoS)"></a>传统共识机制(Pow 和 PoS)</h3><p>传统共识机制中的每一个节点都有自己的内部时钟，它按照本地系统时钟执行。当交易发生时，节点根据本地时钟为交易新增时间戳。所有的节点需要相互沟通，协调彼此的本地时钟，以确保他们处理交易时时间是一致的。当有成千上万个节点分布在全球各地，就会遇到<strong>时间戳同步问题</strong>，要同步时间就需要花费大量的时间和处理能力来验证时间戳的准确性。倒是区块确认的延迟，甚至拒绝。</p>
+<h3 id="什么是-PoH（历史证明）"><a href="#什么是-PoH（历史证明）" class="headerlink" title="什么是 PoH（历史证明）"></a>什么是 PoH（历史证明）</h3><p>PoH 是选择一个节点（领导节点），以此节点的时间为全局时间，所有节点都使用它来验证两个事件的交易顺序。PoH 依赖于一种加密方法，以建立交易的连续，按时间顺序记录。</p>
+<p>在 Solana 中每个交易都经过 SHA-256 处理，一个交易的 hash 是下一个交易 hash 的输入。这个过程建立一个长而连续的链。PoH 利用 VDF（可验证延迟函数）实现对交易的 hash 以及经过的时间，这是一个串行之行，提供了一个具有加密可靠的交易顺序。</p>
+<h3 id="DPoS（委托权益证明）"><a href="#DPoS（委托权益证明）" class="headerlink" title="DPoS（委托权益证明）"></a>DPoS（委托权益证明）</h3><p>为了更好的了解 PoH，我们结合 DPoS 看看。<br>在 DPoS 中，每个抵押了 SOL 的验证者能够参与网络治理。对区块的有效性进行投票，决定是否将其新增到区块链中。不愿直接参与的权益证明的 SOL 持有者，可以将其委托给其他验证者。作为抵押 SOL 的回报，委托人将获得区块奖励的一部分。</p>
+<p>DPoS 的运作原则是，具有较大权益的节点更有可能被选择来验证交易并将其新增到区块链中。</p>
+<h3 id="Solana-共识机制的概述"><a href="#Solana-共识机制的概述" class="headerlink" title="Solana 共识机制的概述"></a>Solana 共识机制的概述</h3><ol>
+<li>领导节点的选择： 领导节点负责生成 PoH 序列和建立区块</li>
+<li>领导节点将接收交易，并使用 PoH 为它们新增时间戳，形成交易顺序。</li>
+<li>建立区块</li>
+<li>区块传播： 将新建立的区块发送给复制节点（其他验证者）。</li>
+<li>负责节点验证：1. 使用 PoH 序列验证交易顺序，2. 验证交易规则是否有效</li>
+<li>区块新增到区块链中。选择下一个领导节点，重新开始</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.madaotech.top/2024/02/26/blockchain/consensus/POH/" data-id="clt2n23c20011joq89w4lefp3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/12/14/blockchain/btc/address/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">解读 BTC 的地址类型以及交易模型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2024, Madaolabs<br />
+      <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a> -->
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.loli.net/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+ 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+ 
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<script src="/js/script.js"></script>
+ 
+
+
+  </div>
+</body>
+</html>
