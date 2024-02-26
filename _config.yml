@@ -107,3 +107,6 @@ favicon: /favicon.ico
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ""
+
+# Google Analytics
+google_analytics: G-6ZP9QPH0GE
